@@ -1,0 +1,53 @@
+---
+// Astro component script section
+---
+
+<nav class="fixed w-full z-50 px-4 py-6 transition-all duration-300" data-name="navigation">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="#" data-name="nav-logo">
+            <img src="logo.png" alt="BTTS" class="h-12 w-auto md:h-16" />
+        </a>
+        <div class="hidden md:flex space-x-12" data-name="nav-links">
+            <a href="#tour" class="nav-link text-white hover:opacity-75 transition-opacity" data-name="nav-tour">Tour</a>
+            <a href="#music" class="nav-link text-white hover:opacity-75 transition-opacity" data-name="nav-music">Music</a>
+            <a href="#gallery" class="nav-link text-white hover:opacity-75 transition-opacity" data-name="nav-gallery">Gallery</a>
+            <a href="#contact" class="nav-link text-white hover:opacity-75 transition-opacity" data-name="nav-contact">Contact</a>
+        </div>
+        <button class="md:hidden text-white" data-name="mobile-menu">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+</nav> 
+
+<script>
+    const nav = document.querySelector('nav');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            nav.classList.add('bg-gradient-to-b', 'from-black/80', 'to-black/40');
+        } else {
+            nav.classList.remove('bg-gradient-to-b', 'from-black/80', 'to-black/40');
+        }
+    });
+</script>
+
+<style>
+    .nav-link {
+        position: relative;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: white;
+        transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+</style> 

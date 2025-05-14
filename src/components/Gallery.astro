@@ -1,0 +1,58 @@
+---
+const images = [
+    {
+        url: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80",
+        caption: "Live at The Black Box"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&q=80",
+        caption: "Manchester Show"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&q=80",
+        caption: "Behind the Scenes"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&q=80",
+        caption: "Studio Session"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&q=80",
+        caption: "Summer Festival"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&q=80",
+        caption: "Acoustic Night"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1508973379184-7517410fb0bc?auto=format&fit=crop&q=80",
+        caption: "Rehearsal Time"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&q=80",
+        caption: "Backstage Moments"
+    },
+    {
+        url: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?auto=format&fit=crop&q=80",
+        caption: "Sound Check"
+    }
+];
+---
+
+<section id="gallery" class="py-16 px-4" data-name="gallery-section">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center">GALLERY</h2>
+        <div class="grid md:grid-cols-3 gap-4" data-name="gallery-grid">
+            {images.map((image) => (
+                <div class="overflow-hidden" data-name="gallery-item">
+                    <img 
+                        src={image.url} 
+                        alt={image.caption}
+                        class="gallery-image w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <p class="mt-2 text-sm text-center">{image.caption}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section> 

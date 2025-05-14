@@ -1,0 +1,97 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any custom base styles here */
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.header-image {
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+  font-family: "Helvetica Neue", sans-serif;
+  letter-spacing: -2px;
+}
+
+.tour-date:hover {
+  background-color: #f3f3f3;
+  transition: background-color 0.3s ease;
+}
+
+.social-link:hover {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.gallery-image {
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation styles */
+nav {
+  background: transparent;
+}
+
+nav.nav-scrolled {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* Navigation links */
+.nav-links a {
+  color: white;
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* Smooth transitions */
+nav {
+  transition: all 0.3s ease;
+}

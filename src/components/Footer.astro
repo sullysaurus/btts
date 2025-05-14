@@ -1,0 +1,88 @@
+---
+// Astro component script section
+---
+
+<footer id="contact" class="bg-black text-white py-24 px-4" data-name="footer">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center">GET IN TOUCH</h2>
+        
+        <div class="grid md:grid-cols-2 gap-16">
+            {/* Contact Info Column */}
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-2xl mb-4 font-light">Contact Us</h3>
+                    <p class="text-lg opacity-80">
+                        For bookings and inquiries:<br />
+                        <a href="mailto:contact@backtothestartband.com" class="hover:opacity-75 transition-opacity">
+                            contact@backtothestartband.com
+                        </a>
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-light">Follow Us</h3>
+                    <div class="flex gap-6" data-name="social-links">
+                        <a href="#" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Spotify">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition-opacity text-3xl" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {/* Contact Form Column */}
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/40 transition-colors"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/40 transition-colors"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/40 transition-colors"
+                        required
+                    ></textarea>
+                </div>
+                <button
+                    type="submit"
+                    class="w-full px-6 py-3 border-2 border-white hover:bg-white hover:text-black transition-colors rounded-lg text-lg font-medium"
+                >
+                    Send Message
+                </button>
+            </form>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-white/20 text-center">
+            <p class="text-sm opacity-70" data-name="copyright">
+                © 2025 Back To The Start. All songs originally performed by Coldplay.
+            </p>
+        </div>
+    </div>
+</footer> 

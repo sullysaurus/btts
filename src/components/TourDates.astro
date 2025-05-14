@@ -1,0 +1,32 @@
+---
+const tourDates = [
+    { date: "Dec 15, 2023", venue: "The Black Box", location: "London, UK" },
+    { date: "Dec 22, 2023", venue: "Music Hall", location: "Manchester, UK" },
+    { date: "Jan 5, 2024", venue: "The Roundhouse", location: "Birmingham, UK" },
+    { date: "Jan 12, 2024", venue: "Echo Arena", location: "Liverpool, UK" }
+];
+---
+
+<section id="tour" class="py-16 px-4" data-name="tour-dates-section">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center">TOUR DATES</h2>
+        <div class="space-y-4" data-name="tour-dates-list">
+            {tourDates.map((show) => (
+                <div 
+                    class="tour-date flex flex-col md:flex-row justify-between items-center p-6 border-b border-gray-200"
+                    data-name="tour-date-item"
+                >
+                    <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.date}</div>
+                    <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.venue}</div>
+                    <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.location}</div>
+                    <button 
+                        class="border-2 border-black px-6 py-2 hover:bg-black hover:text-white transition-colors"
+                        data-name="tickets-button"
+                    >
+                        Tickets
+                    </button>
+                </div>
+            ))}
+        </div>
+    </div>
+</section> 

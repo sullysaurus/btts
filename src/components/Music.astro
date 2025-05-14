@@ -1,0 +1,51 @@
+---
+// Astro component script section
+---
+
+<section id="music" class="bg-black text-white py-24 px-4" data-name="music-section">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center">MUSIC</h2>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            {/* Description Column */}
+            <div class="space-y-6">
+                <h3 class="text-3xl font-light mb-4">Our Setlist</h3>
+                <p class="text-lg text-gray-300 mb-6">
+                    Journey with us through Coldplay's legendary first three albums - Parachutes, 
+                    A Rush of Blood to the Head, and X&Y. These albums defined an era and 
+                    established Coldplay as one of the world's greatest bands.
+                </p>
+                <p class="text-lg text-gray-300">
+                    From the raw intimacy of "Yellow" and "Trouble", through the epic soundscapes 
+                    of "The Scientist" and "Clocks", to the electronic-infused "Talk" and "Speed 
+                    of Sound" - our 90-minute show captures the essence of Coldplay's most 
+                    influential period.
+                </p>
+                <div class="mt-8">
+                    <a 
+                        href="https://open.spotify.com/playlist/7CyaG99gCDiKnFT85zytZe" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="inline-block border-2 border-white px-8 py-3 hover:bg-white hover:text-black transition-colors"
+                    >
+                        Open in Spotify
+                    </a>
+                </div>
+            </div>
+
+            {/* Spotify Embed Column */}
+            <div class="h-[600px] bg-black/50 rounded-lg overflow-hidden">
+                <iframe 
+                    src="https://open.spotify.com/embed/playlist/7CyaG99gCDiKnFT85zytZe?utm_source=generator" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    class="w-full h-full"
+                />
+            </div>
+        </div>
+    </div>
+</section> 
