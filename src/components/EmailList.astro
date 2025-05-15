@@ -6,26 +6,26 @@ interface Props {
 const { title = "Learn About Future Shows" } = Astro.props;
 ---
 
-<div class="max-w-3xl mx-auto px-4 py-20 md:py-32">
-    <div class="text-center space-y-12">
-        <div class="space-y-5">
-            <h2 class="text-5xl md:text-6xl font-light text-black tracking-wide">
+<div class="max-w-3xl mx-auto px-4 py-8 md:py-32">
+    <div class="text-center space-y-4 md:space-y-12">
+        <div class="space-y-2 md:space-y-5">
+            <h2 class="text-xl md:text-6xl font-light text-black tracking-wide">
                 Learn About Future Shows
             </h2>
-            <p class="text-2xl text-black/60 font-light">
+            <p class="text-sm md:text-2xl text-black/60 font-light px-4">
                 Join our mailing list to receive updates about upcoming performances.
             </p>
         </div>
 
-        <div id="sib-form-container" class="sib-form-container">
-            <div id="error-message" class="sib-form-message-panel hidden" style="font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-radius:3px; border-width:px; border-color:#ff4949;max-width:540px;">
+        <div id="sib-form-container" class="sib-form-container max-w-[400px] mx-auto">
+            <div id="error-message" class="sib-form-message-panel hidden" style="font-size:12px; text-align:left; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                     <span class="sib-form-message-panel__inner-text">
                         Your subscription could not be saved. Please try again.
                     </span>
                 </div>
             </div>
-            <div id="success-message" class="sib-form-message-panel hidden" style="font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-radius:3px; border-width:px; border-color:#13ce66;max-width:540px;">
+            <div id="success-message" class="sib-form-message-panel hidden" style="font-size:12px; text-align:left; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;">
                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                     <span class="sib-form-message-panel__inner-text">
                         Thanks for subscribing! We'll keep you updated about future shows.
@@ -38,9 +38,9 @@ const { title = "Learn About Future Shows" } = Astro.props;
                 method="POST" 
                 action="https://sibforms.com/serve/MUIFAKMMWqznLkj2D8FEXJU0nbh2z0EG2pQwZX7YRcnKUq4dyBzb032TYOkihE6QnTNbM3IU3l1INjGA8vbBtDvNAVnPQXDzw4THRi2ThjS7bqUuGavdCz-65WKA2yqOzZ4O0hgipajCNQPpOhox9H_u9UBom9qLRZzKa0NWjJgdbrg4WkonDMj_p090owKgQE8aLiIi1nyHjBxZ" 
                 data-type="subscription"
-                class="space-y-4 max-w-2xl mx-auto"
+                class="space-y-2 md:space-y-4"
             >
-                <div class="flex flex-col sm:flex-row gap-3">
+                <div class="flex flex-col sm:flex-row gap-2">
                     <div class="entry__field flex-1">
                         <input 
                             type="email" 
@@ -50,16 +50,16 @@ const { title = "Learn About Future Shows" } = Astro.props;
                             placeholder="Enter your email address"
                             data-required="true"
                             required
-                            class="flex-1 px-6 sm:px-8 py-4 sm:py-5 bg-gray-100 rounded-full text-black placeholder:text-black/40 focus:outline-none text-base sm:text-xl font-light w-full"
+                            class="w-full h-8 md:h-[60px] px-3 md:px-8 text-xs md:text-xl bg-gray-100 rounded-full text-black placeholder:text-black/40 focus:outline-none font-light"
                         />
                     </div>
 
                     <button 
-                        class="px-8 sm:px-12 py-4 sm:py-5 bg-black text-white font-light text-base sm:text-xl tracking-wide transition-all duration-300 rounded-full hover:bg-black/90 flex items-center justify-center whitespace-nowrap sib-form-block__button sib-form-block__button-with-loader"
+                        class="h-8 md:h-[60px] px-4 md:px-12 bg-black text-white font-light text-xs md:text-xl tracking-wide transition-all duration-300 rounded-full hover:bg-black/90 flex items-center justify-center whitespace-nowrap sib-form-block__button sib-form-block__button-with-loader"
                         form="sib-form" 
                         type="submit"
                     >
-                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon h-3 w-3 md:h-5 md:w-5" viewBox="0 0 512 512">
                             <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                         </svg>
                         Subscribe
