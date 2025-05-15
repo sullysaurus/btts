@@ -1,0 +1,97 @@
+---
+interface Props {
+    title?: string;
+}
+
+const { title = "Learn About Future Shows" } = Astro.props;
+---
+
+<div class="max-w-2xl mx-auto px-4 py-16 md:py-24">
+    <div class="text-center space-y-8">
+        <div class="space-y-4">
+            <h2 class="text-4xl md:text-5xl font-light text-black tracking-wide">
+                Learn About Future Shows
+            </h2>
+            <p class="text-xl text-black/60 font-light">
+                Join our mailing list to receive updates about upcoming performances.
+            </p>
+        </div>
+
+        <form 
+            id="sib-form" 
+            method="POST" 
+            action="https://sibforms.com/serve/MUIFAKMMWqznLkj2D8FEXJU0nbh2z0EG2pQwZX7YRcnKUq4dyBzb032TYOkihE6QnTNbM3IU3l1INjGA8vbBtDvNAVnPQXDzw4THRi2ThjS7bqUuGavdCz-65WKA2yqOzZ4O0hgipajCNQPpOhox9H_u9UBom9qLRZzKa0NWjJgdbrg4WkonDMj_p090owKgQE8aLiIi1nyHjBxZ" 
+            data-type="subscription"
+            class="space-y-6 max-w-xl mx-auto"
+        >
+            <input 
+                type="email" 
+                id="EMAIL" 
+                name="EMAIL" 
+                required
+                placeholder="Enter your email address"
+                class="w-full px-6 py-4 bg-gray-100 rounded-xl text-black placeholder:text-black/40 focus:outline-none text-lg"
+            />
+
+            <button 
+                type="submit"
+                class="w-full px-6 py-4 bg-black text-white font-light text-lg tracking-wide transition-all duration-300 rounded-xl hover:bg-black/90 flex items-center justify-center"
+            >
+                Subscribe
+                <span class="loading-indicator hidden ml-2">
+                    <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </span>
+            </button>
+
+            <input type="text" name="email_address_check" value="" class="hidden">
+            <input type="hidden" name="locale" value="en">
+        </form>
+
+        {/* Success Message */}
+        <div id="success-message" class="hidden max-w-xl mx-auto">
+            <p class="text-black/80 text-lg font-light">Thanks for subscribing! We'll keep you updated about future shows.</p>
+        </div>
+
+        {/* Error Message */}
+        <div id="error-message" class="hidden max-w-xl mx-auto">
+            <p class="text-black/80 text-lg font-light">Something went wrong. Please try again.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('sib-form');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const loadingIndicator = document.querySelector('.loading-indicator');
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loadingIndicator?.classList.remove('hidden');
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    form.classList.add('hidden');
+                    successMessage?.classList.remove('hidden');
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                errorMessage?.classList.remove('hidden');
+            } finally {
+                loadingIndicator?.classList.add('hidden');
+            }
+        });
+    }
+</script>
