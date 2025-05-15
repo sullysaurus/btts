@@ -1,27 +1,53 @@
-<section class="md:hidden bg-black relative">
-    <div class="container mx-auto px-4 py-16">
-        {/* Band Photo */}
-        <div class="mb-8">
-            <img 
-                src="/desktop-header.jpg" 
-                alt="Back to the Start band" 
-                class="w-full rounded-lg shadow-2xl"
-            />
-        </div>
+<section class="bg-black relative">
+    <div class="container mx-auto px-4 py-24">
+        <div class="max-w-7xl mx-auto">
+            {/* Two Column Layout */}
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                {/* Left Column - Photo */}
+                <div class="relative group">
+                    <img 
+                        src="/btts-logo.png" 
+                        alt="Back to the Start band" 
+                        class="w-full rounded-lg shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+                </div>
 
-        {/* About Content */}
-        <div class="space-y-6 text-center">
-            <h2 class="text-3xl font-bold text-white">About Us</h2>
-            <p class="text-white/80 leading-relaxed">
-                Back to the Start brings you the authentic sound of early Coldplay, 
-                focusing on the iconic albums that defined a generation: Parachutes, 
-                A Rush of Blood to the Head, and X&Y.
-            </p>
-            <p class="text-white/80 leading-relaxed">
-                With meticulous attention to detail and a genuine passion for the music, 
-                we recreate the raw emotion and atmospheric soundscapes that made these 
-                albums timeless classics.
-            </p>
+                {/* Right Column - Content */}
+                <div class="space-y-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">About Us</h2>
+                    <div class="space-y-6">
+                        <p class="text-white/80 text-lg leading-relaxed">
+                            Back to the Start brings you the authentic sound of early Coldplay, 
+                            focusing on the iconic albums that defined a generation: Parachutes, 
+                            A Rush of Blood to the Head, and X&Y.
+                        </p>
+                        <p class="text-white/80 text-lg leading-relaxed">
+                            With meticulous attention to detail and a genuine passion for the music, 
+                            we recreate the raw emotion and atmospheric soundscapes that made these 
+                            albums timeless classics.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-8 pt-4">
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-2">90</div>
+                            <div class="text-sm text-white/60 uppercase tracking-wider">Minutes</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-2">3</div>
+                            <div class="text-sm text-white/60 uppercase tracking-wider">Albums</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-2">2000-05</div>
+                            <div class="text-sm text-white/60 uppercase tracking-wider">Era</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    {/* Subtle Gradient Overlay */}
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50 pointer-events-none"></div>
 </section> 
