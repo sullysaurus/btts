@@ -6,92 +6,87 @@ interface Props {
 const { title = "Learn About Future Shows" } = Astro.props;
 ---
 
-<div class="max-w-2xl mx-auto px-4 py-16 md:py-24">
-    <div class="text-center space-y-8">
-        <div class="space-y-4">
-            <h2 class="text-4xl md:text-5xl font-light text-black tracking-wide">
+<div class="max-w-3xl mx-auto px-4 py-20 md:py-32">
+    <div class="text-center space-y-12">
+        <div class="space-y-5">
+            <h2 class="text-5xl md:text-6xl font-light text-black tracking-wide">
                 Learn About Future Shows
             </h2>
-            <p class="text-xl text-black/60 font-light">
+            <p class="text-2xl text-black/60 font-light">
                 Join our mailing list to receive updates about upcoming performances.
             </p>
         </div>
 
-        <form 
-            id="sib-form" 
-            method="POST" 
-            action="https://sibforms.com/serve/MUIFAKMMWqznLkj2D8FEXJU0nbh2z0EG2pQwZX7YRcnKUq4dyBzb032TYOkihE6QnTNbM3IU3l1INjGA8vbBtDvNAVnPQXDzw4THRi2ThjS7bqUuGavdCz-65WKA2yqOzZ4O0hgipajCNQPpOhox9H_u9UBom9qLRZzKa0NWjJgdbrg4WkonDMj_p090owKgQE8aLiIi1nyHjBxZ" 
-            data-type="subscription"
-            class="space-y-6 max-w-xl mx-auto"
-        >
-            <input 
-                type="email" 
-                id="EMAIL" 
-                name="EMAIL" 
-                required
-                placeholder="Enter your email address"
-                class="w-full px-6 py-4 bg-gray-100 rounded-xl text-black placeholder:text-black/40 focus:outline-none text-lg"
-            />
+        <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel hidden" style="font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-radius:3px; border-width:px; border-color:#ff4949;max-width:540px;">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <span class="sib-form-message-panel__inner-text">
+                        Your subscription could not be saved. Please try again.
+                    </span>
+                </div>
+            </div>
+            <div id="success-message" class="sib-form-message-panel hidden" style="font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-radius:3px; border-width:px; border-color:#13ce66;max-width:540px;">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <span class="sib-form-message-panel__inner-text">
+                        Thanks for subscribing! We'll keep you updated about future shows.
+                    </span>
+                </div>
+            </div>
 
-            <button 
-                type="submit"
-                class="w-full px-6 py-4 bg-black text-white font-light text-lg tracking-wide transition-all duration-300 rounded-xl hover:bg-black/90 flex items-center justify-center"
+            <form 
+                id="sib-form" 
+                method="POST" 
+                action="https://sibforms.com/serve/MUIFAKMMWqznLkj2D8FEXJU0nbh2z0EG2pQwZX7YRcnKUq4dyBzb032TYOkihE6QnTNbM3IU3l1INjGA8vbBtDvNAVnPQXDzw4THRi2ThjS7bqUuGavdCz-65WKA2yqOzZ4O0hgipajCNQPpOhox9H_u9UBom9qLRZzKa0NWjJgdbrg4WkonDMj_p090owKgQE8aLiIi1nyHjBxZ" 
+                data-type="subscription"
+                class="space-y-6 max-w-2xl mx-auto"
             >
-                Subscribe
-                <span class="loading-indicator hidden ml-2">
-                    <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </span>
-            </button>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="entry__field flex-1">
+                        <input 
+                            type="email" 
+                            id="EMAIL" 
+                            name="EMAIL" 
+                            autocomplete="off" 
+                            placeholder="Enter your email address"
+                            data-required="true"
+                            required
+                            class="flex-1 px-8 py-5 bg-gray-100 rounded-full text-black placeholder:text-black/40 focus:outline-none text-xl font-light w-full"
+                        />
+                    </div>
 
-            <input type="text" name="email_address_check" value="" class="hidden">
-            <input type="hidden" name="locale" value="en">
-        </form>
+                    <button 
+                        class="px-12 py-5 bg-black text-white font-light text-xl tracking-wide transition-all duration-300 rounded-full hover:bg-black/90 flex items-center justify-center whitespace-nowrap sib-form-block__button sib-form-block__button-with-loader"
+                        form="sib-form" 
+                        type="submit"
+                    >
+                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                        </svg>
+                        Subscribe
+                    </button>
+                </div>
 
-        {/* Success Message */}
-        <div id="success-message" class="hidden max-w-xl mx-auto">
-            <p class="text-black/80 text-lg font-light">Thanks for subscribing! We'll keep you updated about future shows.</p>
-        </div>
-
-        {/* Error Message */}
-        <div id="error-message" class="hidden max-w-xl mx-auto">
-            <p class="text-black/80 text-lg font-light">Something went wrong. Please try again.</p>
+                <input type="text" name="email_address_check" value="" class="input--hidden">
+                <input type="hidden" name="locale" value="en">
+                <input type="hidden" name="html_type" value="simple">
+            </form>
         </div>
     </div>
 </div>
 
 <script>
-    const form = document.getElementById('sib-form');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-    const loadingIndicator = document.querySelector('.loading-indicator');
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+    window.LOCALE = 'en';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'The information provided is invalid. Please review the field format and try again.';
+    window.REQUIRED_ERROR_MESSAGE = 'This field cannot be left blank. ';
+    window.GENERIC_INVALID_MESSAGE = 'The information provided is invalid. Please review the field format and try again.';
+    window.translation = {
+        common: {
+            selectedList: '{quantity} list selected',
+            selectedLists: '{quantity} lists selected'
+        }
+    };
 
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            loadingIndicator?.classList.remove('hidden');
-            
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    form.reset();
-                    form.classList.add('hidden');
-                    successMessage?.classList.remove('hidden');
-                } else {
-                    throw new Error('Submission failed');
-                }
-            } catch (error) {
-                errorMessage?.classList.remove('hidden');
-            } finally {
-                loadingIndicator?.classList.add('hidden');
-            }
-        });
-    }
+    var AUTOHIDE = Boolean(0);
 </script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
