@@ -1,127 +1,59 @@
----
-// Astro component script section
----
+<section 
+    class="bg-cover bg-center bg-no-repeat relative pt-24 md:pt-32 pb-2 md:pb-24" 
+    style="background-image: url('/stars.jpg');"
+>
+    {/* Overlay */}
+    <div class="absolute inset-0 bg-black/60"></div>
 
-<div data-name="header-container" class="relative">
-    {/* Hero Section */}
-    <div class="header-image relative h-screen flex flex-col items-center">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
-        
-        {/* Main Content */}
-        <div class="flex flex-col items-center justify-center md:justify-end h-full z-10 px-4 pb-24 md:pb-32">
-            {/* Mobile Logo */}
-            <div class="md:hidden flex flex-col items-center mt-[-100px]">
-                <img 
-                    src="/btts-logo.png" 
-                    alt="Back to the Start" 
-                    class="w-[90%] max-w-2xl mx-auto mb-12 hover:scale-105 transition-all duration-700 ease-out hover:brightness-110"
-                    data-name="band-logo"
-                />
-            </div>
+    {/* Content */}
+    <div class="relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                {/* Main Content */}
+                <div class="space-y-6 md:space-y-10">
+                    {/* Centered Image */}
+                    <div class="relative group">
+                        <img 
+                            src="/band.jpg" 
+                            alt="Band photo" 
+                            class="w-full aspect-[16/9] object-cover rounded-2xl shadow-2xl"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
 
-            {/* Desktop Text */}
-            <div class="hidden md:flex flex-col items-center text-center">
-                <h1 class="text-6xl font-bold tracking-wider text-white mb-4">
-                    BACK TO THE START
-                </h1>
-                <div class="space-y-3 mb-12">
-                    <p class="text-2xl text-white/80 font-light italic">
-                        A Tribute to Coldplay
-                    </p>
-                    <div class="flex items-center justify-center gap-4">
-                        <span class="h-[1px] w-12 bg-white/30"></span>
-                        <p class="text-white/60 tracking-[0.25em] text-sm">2000-2005</p>
-                        <span class="h-[1px] w-12 bg-white/30"></span>
+                    {/* Centered Text */}
+                    <div class="text-center space-y-3">
+                        <h1 class="text-white text-3xl md:text-4xl font-light tracking-wide">Back To The Start</h1>
+                        <p class="text-white/90 text-xl font-light tracking-wide">A Tribute to Coldplay</p>
+                        <div class="flex items-center justify-center gap-4 mt-2">
+                            <span class="h-[1px] w-12 bg-white/20"></span>
+                            <p class="text-white/60 tracking-[0.25em] text-sm font-light">2000-2005</p>
+                            <span class="h-[1px] w-12 bg-white/20"></span>
+                        </div>
+                    </div>
+
+                    {/* Centered Buttons */}
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a 
+                            href="#contact" 
+                            class="group relative overflow-hidden rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 backdrop-blur-sm"
+                        >
+                            <span class="relative flex items-center justify-between px-8 py-4">
+                                <span class="text-white font-light tracking-wider">Book Now</span>
+                                <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                            </span>
+                        </a>
+                        <a 
+                            href="/press-kit.pdf" 
+                            class="group relative overflow-hidden rounded-full border border-white/20 hover:border-white/40 transition-all duration-500"
+                        >
+                            <span class="relative flex items-center justify-between px-8 py-4">
+                                <span class="text-white/90 group-hover:text-white transition-colors font-light tracking-wider">Press Kit</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-
-        {/* Buttons */}
-        <div class="absolute bottom-20 left-0 right-0 flex flex-col sm:flex-row gap-4 justify-center px-4">
-            <a 
-                href="#contact" 
-                class="group relative overflow-hidden rounded-full bg-white hover:bg-opacity-90 transition-all duration-500"
-                data-name="contact-button"
-            >
-                <span class="relative flex items-center justify-between px-10 py-4">
-                    <span class="text-black font-normal tracking-wider">Book Now</span>
-                    <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                </span>
-            </a>
-            <a 
-                href="/press-kit.pdf" 
-                class="group relative overflow-hidden rounded-full border border-white/30 hover:border-white transition-all duration-500"
-                data-name="press-kit-button"
-            >
-                <span class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></span>
-                <span class="relative flex items-center justify-between px-10 py-4">
-                    <span class="text-white/90 group-hover:text-white transition-colors font-light tracking-wider">Press Kit</span>
-                </span>
-            </a>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div class="absolute bottom-6 left-0 right-0 flex justify-center">
-            <div class="scroll-indicator text-white/40 hover:text-white/90 transition-colors cursor-pointer">
-                <i class="fas fa-chevron-down animate-bounce text-sm"></i>
-            </div>
-        </div>
     </div>
-</div>
-
-<style>
-    .header-image {
-        background-image: url('/desktop-header.jpg');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        width: 100%;
-    }
-
-    @media (max-width: 768px) {
-        .header-image {
-            background-image: url('/mobile-header.jpg');
-            background-position: center center;
-        }
-    }
-
-    .nav-link {
-        position: relative;
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -2px;
-        left: 0;
-        background-color: white;
-        transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-        width: 100%;
-    }
-
-    .button-glow {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0);
-        transition: all 0.3s ease;
-    }
-
-    .button-glow:hover {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        transform: translateY(-2px);
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-    }
-
-    [data-name="band-logo"] {
-        animation: float 6s ease-in-out infinite;
-    }
-</style>
+</section>

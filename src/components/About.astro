@@ -1,47 +1,63 @@
-<section class="bg-black relative">
-    <div class="container mx-auto px-4 py-24">
-        <div class="max-w-7xl mx-auto">
-            {/* Two Column Layout */}
-            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                {/* Left Column - Photo */}
-                <div class="relative group">
-                    <img 
-                        src="/btts-logo.png" 
-                        alt="Back to the Start band" 
-                        class="w-full rounded-lg shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
-                </div>
+---
+const bandMembers = [
+    { name: "Scott Ivey", role: "Vocals / Guitar / Piano" },
+    { name: "Eric Johnson", role: "Guitar" },
+    { name: "Daniel Ellis", role: "Bass" },
+    { name: "Brandon Barnes", role: "Drums" }
+];
+---
 
-                {/* Right Column - Content */}
-                <div class="space-y-8">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">About Us</h2>
-                    <div class="space-y-6">
-                        <p class="text-white/80 text-lg leading-relaxed">
-                            Back to the Start brings you the authentic sound of early Coldplay, 
-                            focusing on the iconic albums that defined a generation: Parachutes, 
-                            A Rush of Blood to the Head, and X&Y.
-                        </p>
-                        <p class="text-white/80 text-lg leading-relaxed">
-                            With meticulous attention to detail and a genuine passion for the music, 
-                            we recreate the raw emotion and atmospheric soundscapes that made these 
-                            albums timeless classics.
-                        </p>
+<section class="bg-black relative pt-24 pb-24">
+    <div class="container mx-auto px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+                {/* Left Column - Description */}
+                <div class="space-y-12">
+                    <div class="space-y-8">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">About Us</h2>
+                        <div class="prose prose-lg prose-invert">
+                            <p class="text-white/80 leading-relaxed">
+                                Back to the Start is a tribute to Coldplay's earliest and most iconic era, capturing the raw emotion and atmospheric
+                                beauty of Parachutes, A Rush of Blood to the Head, and X&Y. With a deep reverence for the original sound, the band
+                                delivers an immersive experience that takes audiences on a journey through Coldplay's golden years—from the intimate
+                                melancholy of "Sparks" to the soaring anthems like "Clocks" and "Fix You."
+                            </p>
+                            <p class="text-white/80 leading-relaxed mt-6">
+                                Led by vocalist and multi-instrumentalist Scott Ivey, the band features Eric Johnson on guitar, Daniel Ellis on bass, and
+                                Brandon Barnes on drums. Together, they channel the spirit, tone, and passion that made Coldplay a global
+                                phenomenon—before the stadium synths and pop beats.
+                            </p>
+                            <p class="text-white/80 leading-relaxed mt-6">
+                                Whether you're a lifelong fan or discovering these songs for the first time, Back to the Start brings the heart of early
+                                Coldplay to life with authenticity, precision, and soul.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-8 pt-4">
-                        <div>
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-2">90</div>
-                            <div class="text-sm text-white/60 uppercase tracking-wider">Minutes</div>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center p-4">
+                            <div class="text-3xl font-bold text-white mb-2">90</div>
+                            <div class="text-sm text-white/60 uppercase tracking-wider">Mins</div>
                         </div>
-                        <div>
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-2">3</div>
+                        <div class="text-center p-4">
+                            <div class="text-3xl font-bold text-white mb-2">3</div>
                             <div class="text-sm text-white/60 uppercase tracking-wider">Albums</div>
                         </div>
-                        <div>
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-2">2000-05</div>
+                        <div class="text-center p-4">
+                            <div class="text-3xl font-bold text-white mb-2">2000-05</div>
                             <div class="text-sm text-white/60 uppercase tracking-wider">Era</div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Right Column - Logo */}
+                <div class="flex items-center justify-center">
+                    <div class="w-full max-w-md space-y-8">
+                        <img 
+                            src="/white-logo.png" 
+                            alt="Back to the Start" 
+                            class="w-full hover:scale-105 transition-all duration-700 ease-out hover:brightness-110"
+                        />
                     </div>
                 </div>
             </div>
