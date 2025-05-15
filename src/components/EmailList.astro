@@ -17,7 +17,7 @@ const { title = "Learn About Future Shows" } = Astro.props;
             </p>
         </div>
 
-        <div id="sib-form-container" class="sib-form-container max-w-[400px] mx-auto">
+        <div id="sib-form-container" class="sib-form-container max-w-[400px] md:max-w-[800px] mx-auto">
             <div id="error-message" class="sib-form-message-panel hidden" style="font-size:12px; text-align:left; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                     <span class="sib-form-message-panel__inner-text">
@@ -50,12 +50,12 @@ const { title = "Learn About Future Shows" } = Astro.props;
                             placeholder="Enter your email address"
                             data-required="true"
                             required
-                            class="w-full h-8 md:h-[60px] px-3 md:px-8 text-xs md:text-xl bg-gray-100 rounded-full text-black placeholder:text-black/40 focus:outline-none font-light"
+                            class="w-full h-8 md:h-[70px] px-3 md:px-10 text-xs md:text-2xl bg-gray-100 rounded-full text-black placeholder:text-black/40 focus:outline-none font-light"
                         />
                     </div>
 
                     <button 
-                        class="h-8 md:h-[60px] px-4 md:px-12 bg-black text-white font-light text-xs md:text-xl tracking-wide transition-all duration-300 rounded-full hover:bg-black/90 flex items-center justify-center whitespace-nowrap sib-form-block__button sib-form-block__button-with-loader"
+                        class="h-8 md:h-[70px] px-4 md:px-16 bg-black text-white font-light text-xs md:text-2xl tracking-wide transition-all duration-300 rounded-full hover:bg-black/90 flex items-center justify-center whitespace-nowrap sib-form-block__button sib-form-block__button-with-loader"
                         form="sib-form" 
                         type="submit"
                     >
