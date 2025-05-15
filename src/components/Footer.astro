@@ -13,8 +13,8 @@
                     <h3 class="text-2xl mb-4 font-light">Contact Us</h3>
                     <p class="text-lg opacity-80">
                         For bookings and inquiries:<br />
-                        <a href="mailto:contact@backtothestartband.com" class="hover:opacity-75 transition-opacity">
-                            contact@backtothestartband.com
+                        <a href="mailto:contact@backtothestart.band" class="hover:opacity-75 transition-opacity">
+                            contact@backtothestart.band
                         </a>
                     </p>
                 </div>
@@ -22,24 +22,34 @@
                 <div class="space-y-4">
                     <h3 class="text-2xl font-light">Follow Us</h3>
                     <div class="flex gap-6" data-name="social-links">
-                        <a href="#" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Spotify">
-                            <i class="fab fa-spotify"></i>
-                        </a>
                         <a href="https://www.instagram.com/backtothestart.band" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://www.tiktok.com/backtothestart.band" class="hover:opacity-75 transition-opacity text-3xl" aria-label="TikTok">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="#" class="hover:opacity-75 transition-opacity text-3xl" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
                     </div>
                 </div>
             </div>
 
             {/* Contact Form Column */}
-            <form class="space-y-6">
+            <form 
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                class="space-y-6"
+            >
+                {/* Hidden field for spam protection */}
+                <p class="hidden">
+                    <label>
+                        Don't fill this out if you're human: <input name="bot-field" />
+                    </label>
+                </p>
+
+                {/* Hidden field for form name */}
+                <input type="hidden" name="form-name" value="contact" />
+
                 <div>
                     <label for="name" class="block text-sm font-medium mb-2">Name</label>
                     <input
