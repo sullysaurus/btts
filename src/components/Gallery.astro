@@ -1,58 +1,135 @@
 ---
-const images = [
+const albums = [
     {
-        url: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80",
-        caption: "Live at The Black Box"
+        title: "Parachutes",
+        year: "2000",
+        image: "/parachutes.jpeg",
+        description: "Coldplay's debut album, characterized by its intimate acoustic sound and raw emotional honesty. The album's title comes from the band's early name 'Pectoralz' and the yellow imagery became iconic for the band.",
+        funFacts: [
+            "Recorded in Liverpool, London, and Wales",
+            "The song 'Yellow' was inspired by the studio's Yellow Pages directory",
+            "Won the Grammy for Best Alternative Music Album"
+        ],
+        tracks: [
+            "Don't Panic",
+            "Shiver",
+            "Spies",
+            "Sparks",
+            "Yellow",
+            "Trouble",
+            "Parachutes",
+            "High Speed",
+            "We Never Change",
+            "Everything's Not Lost"
+        ]
     },
     {
-        url: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&q=80",
-        caption: "Manchester Show"
+        title: "A Rush of Blood to the Head",
+        year: "2002",
+        image: "/rush.jpeg",
+        description: "A darker, more ambitious follow-up that established Coldplay as a global force in rock music. The album's distinctive artwork features a black-and-white portrait sculpture created by Sølve Sundsbø.",
+        funFacts: [
+            "Written after the 9/11 attacks influenced the band's perspective",
+            "'In My Place' was the first song written after Parachutes",
+            "Named NME's Album of the Year 2002"
+        ],
+        tracks: [
+            "Politik",
+            "In My Place",
+            "God Put a Smile upon Your Face",
+            "The Scientist",
+            "Clocks",
+            "Daylight",
+            "Green Eyes",
+            "Warning Sign",
+            "A Whisper",
+            "A Rush of Blood to the Head",
+            "Amsterdam"
+        ]
     },
     {
-        url: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&q=80",
-        caption: "Behind the Scenes"
-    },
-    {
-        url: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&q=80",
-        caption: "Studio Session"
-    },
-    {
-        url: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&q=80",
-        caption: "Summer Festival"
-    },
-    {
-        url: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&q=80",
-        caption: "Acoustic Night"
-    },
-    {
-        url: "https://images.unsplash.com/photo-1508973379184-7517410fb0bc?auto=format&fit=crop&q=80",
-        caption: "Rehearsal Time"
-    },
-    {
-        url: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&q=80",
-        caption: "Backstage Moments"
-    },
-    {
-        url: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?auto=format&fit=crop&q=80",
-        caption: "Sound Check"
+        title: "X&Y",
+        year: "2005",
+        image: "/xy.jpg",
+        description: "The band's most electronic and experimental album of their early period. The album cover features the Baudot code, an early form of telegraph communication, spelling out X&Y.",
+        funFacts: [
+            "Was the best-selling album of 2005 worldwide",
+            "The band scrapped an entire version of the album and re-recorded it",
+            "The code on the cover actually spells out 'X&Y'"
+        ],
+        tracks: [
+            "Square One",
+            "What If",
+            "White Shadows",
+            "Fix You",
+            "Talk",
+            "X&Y",
+            "Speed of Sound",
+            "A Message",
+            "Low",
+            "The Hardest Part",
+            "Swallowed in the Sea",
+            "Twisted Logic",
+            "Til Kingdom Come"
+        ]
     }
 ];
 ---
 
-<section id="gallery" class="py-16 px-4" data-name="gallery-section">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 text-center">GALLERY</h2>
-        <div class="grid md:grid-cols-3 gap-4" data-name="gallery-grid">
-            {images.map((image) => (
-                <div class="overflow-hidden" data-name="gallery-item">
-                    <img 
-                        src={image.url} 
-                        alt={image.caption}
-                        class="gallery-image w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                    <p class="mt-2 text-sm text-center">{image.caption}</p>
+<section id="gallery" class="bg-black py-20 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">The Albums</h2>
+        
+        <div class="space-y-24">
+            {albums.map((album, index) => (
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class={`space-y-6 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                        <img 
+                            src={album.image} 
+                            alt={album.title}
+                            class="w-full max-w-md mx-auto rounded-lg shadow-2xl hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-3xl font-bold text-white mb-2">{album.title}</h3>
+                            <p class="text-white/60 text-lg">{album.year}</p>
+                        </div>
+                        
+                        <p class="text-white/80 text-lg leading-relaxed">
+                            {album.description}
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold text-white">Fun Facts</h4>
+                            <ul class="space-y-2">
+                                {album.funFacts.map(fact => (
+                                    <li class="text-white/70 flex items-start gap-2">
+                                        <span class="text-white/40 mt-1">•</span>
+                                        {fact}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold text-white">Track Listing</h4>
+                            <ol class="list-decimal list-inside space-y-1">
+                                {album.tracks.map(track => (
+                                    <li class="text-white/70">{track}</li>
+                                ))}
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
     </div>
-</section> 
+</section>
+
+<style>
+    section {
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,1));
+    }
+</style> 
