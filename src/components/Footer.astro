@@ -5,99 +5,110 @@
 <footer id="contact" class="bg-black text-white py-24">
     <div class="container mx-auto px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold mb-16 text-center">GET IN TOUCH</h2>
-            
-            <div class="grid md:grid-cols-2 gap-16">
-                {/* Contact Info Column */}
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl mb-4 font-light">Contact Us</h3>
-                        <p class="text-lg opacity-80">
-                            For bookings and inquiries:<br />
-                            <a href="mailto:contact@backtothestart.band" class="hover:opacity-75 transition-opacity">
-                                contact@backtothestart.band
-                            </a>
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-light">Follow Us</h3>
-                        <div class="flex gap-6" data-name="social-links">
-                            <a href="https://www.instagram.com/backtothestart.band" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://www.facebook.com" class="hover:opacity-75 transition-opacity text-3xl" aria-label="Instagram">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a href="https://www.tiktok.com/@backtothestart.band" class="hover:opacity-75 transition-opacity text-3xl" aria-label="TikTok">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
+            {/* Main Grid */}
+            <div class="grid md:grid-cols-12 gap-16">
+                {/* Brand Column */}
+                <div class="md:col-span-4 space-y-8">
+                    <img 
+                        src="/white-logo.png" 
+                        alt="Back to the Start" 
+                        class="w-full max-w-[200px] opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    />
+                    <div class="flex gap-6" data-name="social-links">
+                        <a 
+                            href="https://www.instagram.com/backtothestart.band" 
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" 
+                            aria-label="Instagram"
+                        >
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a 
+                            href="https://www.facebook.com" 
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" 
+                            aria-label="Facebook"
+                        >
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a 
+                            href="https://www.tiktok.com/@backtothestart.band" 
+                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" 
+                            aria-label="TikTok"
+                        >
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
                     </div>
                 </div>
 
+                {/* Quick Links Column */}
+                <div class="md:col-span-3 space-y-6">
+                    <h3 class="text-xl font-light">Quick Links</h3>
+                    <nav class="space-y-3">
+                        <a href="#music" class="block text-white/70 hover:text-white transition-colors">Music</a>
+                        <a href="#about" class="block text-white/70 hover:text-white transition-colors">About</a>
+                        <a href="#gallery" class="block text-white/70 hover:text-white transition-colors">Gallery</a>
+                        <a href="/press-kit.pdf" class="block text-white/70 hover:text-white transition-colors">Press Kit</a>
+                    </nav>
+                </div>
+
                 {/* Contact Form Column */}
-                <form 
-                    name="contact"
-                    method="POST"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    class="space-y-6"
-                >
-                    {/* Hidden field for spam protection */}
-                    <p class="hidden">
-                        <label>
-                            Don't fill this out if you're human: <input name="bot-field" />
-                        </label>
-                    </p>
-
-                    {/* Hidden field for form name */}
-                    <input type="hidden" name="form-name" value="contact" />
-                    <input type="hidden" name="redirect" value="/thank-you" />
-
-                    <div>
-                        <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/40 transition-colors"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/40 transition-colors"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="4"
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/40 transition-colors"
-                            required
-                        ></textarea>
-                    </div>
-                    <button
-                        type="submit"
-                        class="w-full px-6 py-3 border-2 border-white hover:bg-white hover:text-black transition-colors rounded-lg text-lg font-medium"
+                <div class="md:col-span-5">
+                    <h3 class="text-xl font-light mb-6">Get In Touch</h3>
+                    <form 
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                        class="space-y-4"
                     >
-                        Send Message
-                    </button>
-                </form>
+                        <input type="hidden" name="form-name" value="contact" />
+                        <input type="hidden" name="redirect" value="/thank-you" />
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Name"
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-lg focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/30"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-lg focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/30"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <textarea
+                                name="message"
+                                placeholder="Your message"
+                                rows="4"
+                                class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-lg focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/30"
+                                required
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full px-6 py-3 bg-white text-black hover:bg-white/90 transition-colors rounded-lg text-base font-medium"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
 
-            <div class="mt-16 pt-8 border-t border-white/20 text-center">
-                <p class="text-sm opacity-70" data-name="copyright">
-                    © 2025 Back To The Start
-                </p>
+            {/* Bottom Bar */}
+            <div class="mt-16 pt-8 border-t border-white/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-white/50">
+                        © 2025 Back To The Start. All rights reserved.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
