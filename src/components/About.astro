@@ -1,26 +1,30 @@
 ---
 ---
 
-<section class="bg-black relative py-24">
-    <div class="container mx-auto px-4">
+<section class="relative py-24 overflow-hidden">
+    {/* Background gradient layers */}
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0)_50%)]"></div>
+    
+    <div class="container mx-auto px-4 relative">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-center">
-                <div class="max-w-3xl space-y-12 text-center">
+                <div class="max-w-3xl space-y-12">
                     <div class="space-y-8">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white">About Us</h2>
-                        <div class="prose prose-lg prose-invert">
-                            <p class="text-white/80 leading-relaxed">
+                        <h2 class="text-3xl md:text-4xl font-bold text-black/90">About Us</h2>
+                        <div class="prose prose-lg">
+                            <p class="text-black/80 leading-relaxed">
                                 Back to the Start is a tribute to Coldplay's earliest and most iconic era, capturing the raw emotion and atmospheric
                                 beauty of Parachutes, A Rush of Blood to the Head, and X&Y. With a deep reverence for the original sound, the band
                                 delivers an immersive experience that takes audiences on a journey through Coldplay's golden years—from the intimate
                                 melancholy of "Sparks" to the soaring anthems like "Clocks" and "Fix You."
                             </p>
-                            <p class="text-white/80 leading-relaxed mt-6">
+                            <p class="text-black/80 leading-relaxed mt-6">
                                 Led by vocalist and multi-instrumentalist Scott Ivey, the band features Eric Johnson on guitar, Daniel Ellis on bass, and
                                 Brandon Barnes on drums. Together, they channel the spirit, tone, and passion that made Coldplay a global
                                 phenomenon—before the stadium synths and pop beats.
                             </p>
-                            <p class="text-white/80 leading-relaxed mt-6">
+                            <p class="text-black/80 leading-relaxed mt-6">
                                 Whether you're a lifelong fan or discovering these songs for the first time, Back to the Start brings the heart of early
                                 Coldplay to life with authenticity, precision, and soul.
                             </p>
@@ -29,16 +33,16 @@
 
                     <div class="grid grid-cols-3 gap-6">
                         <div class="text-center p-4">
-                            <div class="text-3xl font-bold text-white mb-2">90</div>
-                            <div class="text-sm text-white/60 uppercase tracking-wider">Mins</div>
+                            <div class="text-3xl font-bold text-black/90 mb-2">90</div>
+                            <div class="text-sm text-black/60 uppercase tracking-wider">Mins</div>
                         </div>
                         <div class="text-center p-4">
-                            <div class="text-3xl font-bold text-white mb-2">3</div>
-                            <div class="text-sm text-white/60 uppercase tracking-wider">Albums</div>
+                            <div class="text-3xl font-bold text-black/90 mb-2">3</div>
+                            <div class="text-sm text-black/60 uppercase tracking-wider">Albums</div>
                         </div>
                         <div class="text-center p-4">
-                            <div class="text-3xl font-bold text-white mb-2">2000-05</div>
-                            <div class="text-sm text-white/60 uppercase tracking-wider">Era</div>
+                            <div class="text-3xl font-bold text-black/90 mb-2">2000-05</div>
+                            <div class="text-sm text-black/60 uppercase tracking-wider">Era</div>
                         </div>
                     </div>
                 </div>
@@ -46,6 +50,15 @@
         </div>
     </div>
 
-    {/* Subtle Gradient Overlay */}
-    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50 pointer-events-none"></div>
+    {/* Subtle parallax effect layer */}
+    <div class="absolute inset-0 bg-[url('/subtle-dots.png')] opacity-5 bg-repeat transform translate-y-[10%] pointer-events-none"
+         style="background-size: 30px 30px; animation: subtleFloat 20s linear infinite;"></div>
+
+    <style>
+        @keyframes subtleFloat {
+            0% { transform: translateY(10%); }
+            50% { transform: translateY(0%); }
+            100% { transform: translateY(10%); }
+        }
+    </style>
 </section> 
