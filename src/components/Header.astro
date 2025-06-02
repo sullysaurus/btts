@@ -1,3 +1,9 @@
+<head>
+    {/* Preload critical assets */}
+    <link rel="preload" as="image" href="/stars.jpg" type="image/jpeg" />
+    <link rel="preload" as="image" href="/header-text.png" type="image/png" />
+</head>
+
 <section 
     class="bg-cover bg-center bg-no-repeat relative pt-24 md:pt-32 pb-16 md:pb-32" 
     style="background-image: url('/stars.jpg');"
@@ -16,6 +22,11 @@
                         <img 
                             src="/band.jpg" 
                             alt="Band photo" 
+                            width="1920"
+                            height="1080"
+                            loading="lazy"
+                            decoding="async"
+                            fetchpriority="low"
                             class="w-full aspect-[16/9] object-cover rounded-2xl shadow-2xl"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -26,6 +37,10 @@
                         <img 
                             src="/header-text.png" 
                             alt="Back To The Start - A Tribute to Coldplay 2000-2005" 
+                            width="800"
+                            height="200"
+                            fetchpriority="high"
+                            decoding="async"
                             class="w-auto h-auto max-w-[80%] md:max-w-[60%] mx-auto"
                         />
                     </div>
