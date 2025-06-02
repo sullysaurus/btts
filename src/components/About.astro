@@ -1,55 +1,62 @@
----
----
-
-<section id="about" class="relative py-24 overflow-hidden">
-    {/* Background image layer */}
-    <div class="absolute inset-0 bg-[url('/about-bg.jpg')] bg-cover bg-center bg-fixed bg-no-repeat opacity-75"></div>
-    
-    {/* Background gradient layers - making more transparent */}
-    <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white/70"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0)_50%)]"></div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex justify-center">
-                <div class="max-w-3xl space-y-12">
-                    <div class="space-y-8">
-                        <h2 class="text-3xl md:text-4xl font-bold text-black/90">About Us</h2>
-                        <div class="prose prose-lg">
-                            <p class="text-black/80 leading-relaxed">
-                                Back to the Start is a tribute to Coldplay's earliest and most iconic era, capturing the raw emotion and atmospheric
-                                beauty of Parachutes, A Rush of Blood to the Head, and X&Y. With a deep reverence for the original sound, the band
-                                delivers an immersive experience that takes audiences on a journey through Coldplay's golden years—from the intimate
-                                melancholy of "Sparks" to the soaring anthems like "Clocks" and "Fix You."
-                            </p>
-                            <p class="text-black/80 leading-relaxed mt-6">
-                                Led by vocalist and multi-instrumentalist Scott Ivey, the band features Eric Johnson on guitar, Daniel Ellis on bass, and
-                                Brandon Barnes on drums. Together, they channel the spirit, tone, and passion that made Coldplay a global
-                                phenomenon—before the stadium synths and pop beats.
-                            </p>
-                            <p class="text-black/80 leading-relaxed mt-6">
-                                Whether you're a lifelong fan or discovering these songs for the first time, Back to the Start brings the heart of early
-                                Coldplay to life with authenticity, precision, and soul.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="text-center p-4">
-                            <div class="text-3xl font-bold text-black/90 mb-2">90</div>
-                            <div class="text-sm text-black/60 uppercase tracking-wider">Mins</div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="text-3xl font-bold text-black/90 mb-2">3</div>
-                            <div class="text-sm text-black/60 uppercase tracking-wider">Albums</div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="text-3xl font-bold text-black/90 mb-2">2000-05</div>
-                            <div class="text-sm text-black/60 uppercase tracking-wider">Era</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section id="about" class="relative h-auto bg-black w-full overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.15),rgba(0,0,0,0)_50%)] z-0"></div>
+  
+    <div class="relative z-10">
+      <div class="grid lg:grid-cols-2 gap-0">
+        
+        <!-- Video Section -->
+        <div class="relative w-full aspect-video lg:aspect-auto h-[80vh] overflow-hidden">
+          <iframe
+            id="vimeo-player"
+            src="https://player.vimeo.com/video/1089697834?title=0&byline=0&portrait=0&badge=0&autopause=0&controls=1&player_id=vimeo-player&app_id=58479&dnt=1&background=0&autoplay=1&muted=1"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            class="absolute inset-0 w-full h-full object-cover"
+          ></iframe>
         </div>
+  
+        <!-- Desktop Text Content -->
+        <div class="hidden lg:flex items-center px-12 py-12">
+          <div class="space-y-8 max-w-2xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-white/90 leading-tight">About Us</h2>
+            <div class="prose prose-lg prose-invert">
+              <p class="text-white/80 leading-relaxed">
+                Back to the Start is a tribute to Coldplay's earliest and most iconic era, capturing the raw emotion and atmospheric
+                beauty of <em>Parachutes</em>, <em>A Rush of Blood to the Head</em>, and <em>X&Y</em>. With a deep reverence for the original sound, the band
+                delivers an immersive experience that takes audiences on a journey through Coldplay's golden years—from the intimate
+                melancholy of <strong>"Sparks"</strong> to the soaring anthems like <strong>"Clocks"</strong> and <strong>"Fix You."</strong>
+              </p>
+              <p class="text-white/80 leading-relaxed mt-6">
+                Led by vocalist and multi-instrumentalist Scott Ivey, the band features Eric Johnson on guitar, Daniel Ellis on bass, and
+                Brandon Barnes on drums. Together, they channel the spirit, tone, and passion that made Coldplay a global
+                phenomenon—before the stadium synths and pop beats.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Mobile Text Content -->
+      <div class="lg:hidden block px-6 py-12 bg-black">
+        <div class="space-y-8">
+          <h2 class="text-4xl font-bold text-white/90 leading-tight">About Us</h2>
+          <div class="prose prose-lg prose-invert">
+            <p class="text-white/80 leading-relaxed">
+              Back to the Start is a tribute to Coldplay's earliest and most iconic era, capturing the raw emotion and atmospheric
+              beauty of <em>Parachutes</em>, <em>A Rush of Blood to the Head</em>, and <em>X&Y</em>. With a deep reverence for the original sound, the band
+              delivers an immersive experience that takes audiences on a journey through Coldplay's golden years—from the intimate
+              melancholy of <strong>"Sparks"</strong> to the soaring anthems like <strong>"Clocks"</strong> and <strong>"Fix You."</strong>
+            </p>
+            <p class="text-white/80 leading-relaxed mt-6">
+              Led by vocalist and multi-instrumentalist Scott Ivey, the band features Eric Johnson on guitar, Daniel Ellis on bass, and
+              Brandon Barnes on drums. Together, they channel the spirit, tone, and passion that made Coldplay a global
+              phenomenon—before the stadium synths and pop beats.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-</section> 
+  </section>
+  
+  

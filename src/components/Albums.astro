@@ -40,6 +40,13 @@ const albums = [
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-light text-white text-center mb-16">The Albums</h2>
             
+            {/* Mobile hint */}
+            <div class="md:hidden text-center mb-8 opacity-0 animate-fade-hint">
+                <span class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/70 text-sm">
+                    Tap album to read more
+                </span>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {albums.map((album) => (
                     <div class="space-y-6">
@@ -80,6 +87,18 @@ const albums = [
             0% { transform: translateY(10%) scale(1.5) rotate(-2deg); }
             50% { transform: translateY(-5%) scale(1.6) rotate(2deg); }
             100% { transform: translateY(10%) scale(1.5) rotate(-2deg); }
+        }
+
+        @keyframes fadeHint {
+            0% { opacity: 0; transform: translateY(10px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
+
+        .animate-fade-hint {
+            animation: fadeHint 3s ease-in-out forwards;
+            animation-delay: 1s;
         }
     </style>
 </section> 
