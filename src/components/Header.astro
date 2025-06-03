@@ -49,7 +49,8 @@
                     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 sm:mb-0">
                         <a 
                             href="#contact" 
-                            class="group relative overflow-hidden rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 backdrop-blur-sm"
+                            class="group relative overflow-hidden rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 backdrop-blur-sm scroll-smooth"
+                            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;"
                         >
                             <span class="relative flex items-center justify-between px-8 py-4">
                                 <span class="text-white font-light tracking-wider">Book Now</span>
@@ -70,3 +71,9 @@
         </div>
     </div>
 </section>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
