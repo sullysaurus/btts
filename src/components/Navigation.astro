@@ -1,75 +1,101 @@
 ---
+
 ---
-<nav class="fixed w-full z-50 px-4 py-2 transition-all duration-300 bg-black/70" data-name="navigation">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="#" data-name="nav-logo">
-            <img src="logo.png" alt="BTTS" class="h-12 w-auto md:h-16" />
-        </a>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-12" data-name="nav-links">
-            <a href="#about" class="nav-link text-white hover:opacity-75 transition-opacity">About</a>
-            <a href="#setlist" class="nav-link text-white hover:opacity-75 transition-opacity">Setlist</a>
-            <a href="#albums" class="nav-link text-white hover:opacity-75 transition-opacity">Albums</a>
-            <a href="#shows" class="nav-link text-white hover:opacity-75 transition-opacity">Shows</a>
-            <a href="#contact" class="nav-link text-white hover:opacity-75 transition-opacity">Contact</a>
-        </div>
+<nav
+  class="fixed w-full z-50 px-4 py-2 transition-all duration-300 bg-black/70"
+  data-name="navigation"
+>
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <a href="#" data-name="nav-logo">
+      <img src="logo.png" alt="BTTS" class="h-12 w-auto md:h-16" />
+    </a>
 
-        <!-- Hamburger Icon -->
-        <button class="md:hidden text-white" id="mobile-menu-toggle">
-            <i class="fas fa-bars text-2xl"></i>
-        </button>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-12" data-name="nav-links">
+      <a
+        href="#about"
+        class="nav-link text-white hover:opacity-75 transition-opacity">About</a
+      >
+      <a
+        href="#setlist"
+        class="nav-link text-white hover:opacity-75 transition-opacity"
+        >Setlist</a
+      >
+      <a
+        href="#albums"
+        class="nav-link text-white hover:opacity-75 transition-opacity"
+        >Albums</a
+      >
+      <a
+        href="#shows"
+        class="nav-link text-white hover:opacity-75 transition-opacity">Shows</a
+      >
+      <a
+        href="#contact"
+        class="nav-link text-white hover:opacity-75 transition-opacity"
+        >Contact</a
+      >
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden flex-col items-start space-y-4 mt-4 px-4">
-        <a href="#about" class="block text-white hover:opacity-75">About</a>
-        <a href="#setlist" class="block text-white hover:opacity-75">Setlist</a>
-        <a href="#albums" class="block text-white hover:opacity-75">Albums</a>
-        <a href="#shows" class="block text-white hover:opacity-75">Shows</a>
-        <a href="#contact" class="block text-white hover:opacity-75">Contact</a>
-    </div>
+    <!-- Hamburger Icon -->
+    <button class="md:hidden text-white" id="mobile-menu-toggle">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden flex-col items-start space-y-4 mt-4 px-4"
+  >
+    <a href="#about" class="block text-white hover:opacity-75">About</a>
+    <a href="#setlist" class="block text-white hover:opacity-75">Setlist</a>
+    <a href="#albums" class="block text-white hover:opacity-75">Albums</a>
+    <a href="#shows" class="block text-white hover:opacity-75">Shows</a>
+    <a href="#contact" class="block text-white hover:opacity-75">Contact</a>
+  </div>
 </nav>
 
 <!-- Scroll & Toggle Logic -->
 <script>
-    const nav = document.querySelector('nav');
-    const toggleBtn = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+  const nav = document.querySelector('nav');
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-    // Scroll background effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.classList.add('bg-gradient-to-b', 'from-black/80', 'to-black/40');
-        } else {
-            nav.classList.remove('bg-gradient-to-b', 'from-black/80', 'to-black/40');
-        }
-    });
+  // Scroll background effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      nav.classList.add('bg-gradient-to-b', 'from-black/80', 'to-black/40');
+    } else {
+      nav.classList.remove('bg-gradient-to-b', 'from-black/80', 'to-black/40');
+    }
+  });
 
-    // Toggle mobile menu
-    toggleBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+  // Toggle mobile menu
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
 </script>
 
 <!-- Underline Hover Style -->
 <style>
-    .nav-link {
-        position: relative;
-    }
+  .nav-link {
+    position: relative;
+  }
 
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -2px;
-        left: 0;
-        background-color: white;
-        transition: width 0.3s ease;
-    }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
 
-    .nav-link:hover::after {
-        width: 100%;
-    }
+  .nav-link:hover::after {
+    width: 100%;
+  }
 </style>

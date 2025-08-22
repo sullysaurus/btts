@@ -1,128 +1,175 @@
 ---
 const albums = [
-    {
-        title: "Parachutes",
-        year: "2000",
-        image: "/parachutes.jpeg",
-        description: "Coldplay's debut album, characterized by its intimate acoustic sound and raw emotional honesty. The album's title comes from the band's early name 'Pectoralz' and the yellow imagery became iconic for the band."
-    },
-    {
-        title: "A Rush of Blood to the Head",
-        year: "2002",
-        image: "/rush.jpeg",
-        description: "A darker, more ambitious follow-up that established Coldplay as a global force in rock music. The album's distinctive artwork features a black-and-white portrait sculpture created by Sølve Sundsbø."
-    },
-    {
-        title: "X&Y",
-        year: "2005",
-        image: "/xy.jpg",
-        description: "The band's most electronic and experimental album of their early period. The album cover features the Baudot code, an early form of telegraph communication, spelling out X&Y."
-    }
+  {
+    title: 'Parachutes',
+    year: '2000',
+    image: '/parachutes.jpeg',
+    description:
+      "Coldplay's debut album, characterized by its intimate acoustic sound and raw emotional honesty. The album's title comes from the band's early name 'Pectoralz' and the yellow imagery became iconic for the band.",
+  },
+  {
+    title: 'A Rush of Blood to the Head',
+    year: '2002',
+    image: '/rush.jpeg',
+    description:
+      "A darker, more ambitious follow-up that established Coldplay as a global force in rock music. The album's distinctive artwork features a black-and-white portrait sculpture created by Sølve Sundsbø.",
+  },
+  {
+    title: 'X&Y',
+    year: '2005',
+    image: '/xy.jpg',
+    description:
+      "The band's most electronic and experimental album of their early period. The album cover features the Baudot code, an early form of telegraph communication, spelling out X&Y.",
+  },
 ];
 ---
 
-<section id="albums" class="bg-black py-12 md:py-24 px-4 relative overflow-hidden">
-    {/* Parallax star layers */}
-    <div 
-        class="absolute inset-0 bg-[url('/stars.jpg')] bg-cover opacity-70 bg-repeat transform translate-y-[-10%] pointer-events-none"
-        style="animation: parallaxSlow 25s linear infinite;"
-    ></div>
-    <div 
-        class="absolute inset-0 bg-[url('/stars.jpg')] bg-cover opacity-50 bg-repeat transform scale-150 translate-y-[5%] pointer-events-none"
-        style="animation: parallaxFast 20s linear infinite;"
-    ></div>
-    
-    {/* Gradient overlay */}
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
-    
-    {/* Content */}
-    <div class="container mx-auto relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-light text-white text-center mb-16">The Albums</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                {albums.map((album) => (
-                    <div class="space-y-6">
-                        <div 
-                            class="relative aspect-square overflow-hidden rounded-xl group album-card"
-                            tabindex="0"
-                        >
-                            <img 
-                                src={album.image} 
-                                alt={album.title}
-                                class="w-full h-full object-cover group-hover:scale-105 group-focus:scale-105 transition-all duration-500"
-                            />
-                            <div 
-                                class="absolute inset-0 bg-black/80 md:opacity-0 opacity-100 translate-y-full md:translate-y-0 md:group-hover:opacity-100 md:group-focus:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 album-description"
-                            >
-                                <h3 class="text-2xl font-light text-white mb-2">{album.title}</h3>
-                                <p class="text-white/60 text-lg font-light mb-4">{album.year}</p>
-                                <p class="text-white/80 text-base font-light leading-relaxed">
-                                    {album.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+<section
+  id="albums"
+  class="bg-black py-12 md:py-24 px-4 relative overflow-hidden"
+>
+  {/* Parallax star layers */}
+  <div
+    class="absolute inset-0 bg-[url('/stars.jpg')] bg-cover opacity-70 bg-repeat transform translate-y-[-10%] pointer-events-none"
+    style="animation: parallaxSlow 25s linear infinite;"
+  >
+  </div>
+  <div
+    class="absolute inset-0 bg-[url('/stars.jpg')] bg-cover opacity-50 bg-repeat transform scale-150 translate-y-[5%] pointer-events-none"
+    style="animation: parallaxFast 20s linear infinite;"
+  >
+  </div>
+
+  {/* Gradient overlay */}
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"
+  >
+  </div>
+
+  {/* Content */}
+  <div class="container mx-auto relative z-10">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-light text-white text-center mb-16">
+        The Albums
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {
+          albums.map(album => (
+            <div class="space-y-6">
+              <div
+                class="relative aspect-square overflow-hidden rounded-xl group album-card"
+                tabindex="0"
+              >
+                <img
+                  src={album.image}
+                  alt={album.title}
+                  class="w-full h-full object-cover group-hover:scale-105 group-focus:scale-105 transition-all duration-500"
+                />
+                <div class="absolute inset-0 bg-black/80 md:opacity-0 opacity-100 translate-y-full md:translate-y-0 md:group-hover:opacity-100 md:group-focus:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 album-description">
+                  <h3 class="text-2xl font-light text-white mb-2">
+                    {album.title}
+                  </h3>
+                  <p class="text-white/60 text-lg font-light mb-4">
+                    {album.year}
+                  </p>
+                  <p class="text-white/80 text-base font-light leading-relaxed">
+                    {album.description}
+                  </p>
+                </div>
+              </div>
             </div>
-        </div>
+          ))
+        }
+      </div>
     </div>
+  </div>
 
-    <style>
-        @keyframes parallaxSlow {
-            0% { transform: translateY(-15%) scale(1.1); }
-            50% { transform: translateY(0%) scale(1); }
-            100% { transform: translateY(-15%) scale(1.1); }
-        }
-        
-        @keyframes parallaxFast {
-            0% { transform: translateY(10%) scale(1.5) rotate(-2deg); }
-            50% { transform: translateY(-5%) scale(1.6) rotate(2deg); }
-            100% { transform: translateY(10%) scale(1.5) rotate(-2deg); }
-        }
+  <style>
+    @keyframes parallaxSlow {
+      0% {
+        transform: translateY(-15%) scale(1.1);
+      }
+      50% {
+        transform: translateY(0%) scale(1);
+      }
+      100% {
+        transform: translateY(-15%) scale(1.1);
+      }
+    }
 
-        @keyframes fadeHint {
-            0% { opacity: 0; transform: translateY(10px); }
-            20% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-10px); }
-        }
+    @keyframes parallaxFast {
+      0% {
+        transform: translateY(10%) scale(1.5) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(-5%) scale(1.6) rotate(2deg);
+      }
+      100% {
+        transform: translateY(10%) scale(1.5) rotate(-2deg);
+      }
+    }
 
-        .animate-fade-hint {
-            animation: fadeHint 3s ease-in-out forwards;
-            animation-delay: 1s;
-        }
+    @keyframes fadeHint {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      20% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      80% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
 
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            .album-description {
-                transition: transform 0.5s ease-out;
-            }
-        }
-    </style>
+    .animate-fade-hint {
+      animation: fadeHint 3s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .album-description {
+        transition: transform 0.5s ease-out;
+      }
+    }
+  </style>
 </section>
 
 <script>
-    // Only run on mobile devices
-    if (window.innerWidth < 768) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const description = entry.target.querySelector('.album-description');
-                    description.style.transform = 'translateY(0)';
-                } else {
-                    const description = entry.target.querySelector('.album-description');
-                    description.style.transform = 'translateY(100%)';
-                }
-            });
-        }, {
-            threshold: 0.6, // Show when 60% of the album is visible
-            rootMargin: '-10% 0px' // Trigger slightly before the album is fully in view
+  // Only run on mobile devices
+  if (window.innerWidth < 768) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const description =
+              entry.target.querySelector('.album-description');
+            description.style.transform = 'translateY(0)';
+          } else {
+            const description =
+              entry.target.querySelector('.album-description');
+            description.style.transform = 'translateY(100%)';
+          }
         });
+      },
+      {
+        threshold: 0.6, // Show when 60% of the album is visible
+        rootMargin: '-10% 0px', // Trigger slightly before the album is fully in view
+      }
+    );
 
-        // Observe all album cards
-        document.querySelectorAll('.album-card').forEach(card => {
-            observer.observe(card);
-        });
-    }
-</script> 
+    // Observe all album cards
+    document.querySelectorAll('.album-card').forEach(card => {
+      observer.observe(card);
+    });
+  }
+</script>
+

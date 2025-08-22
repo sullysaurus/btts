@@ -1,79 +1,93 @@
 <head>
-    {/* Preload critical assets */}
-    <link rel="preload" as="image" href="/stars.jpg" type="image/jpeg" />
-    <link rel="preload" as="image" href="/header-text.png" type="image/png" />
+  {/* Preload critical assets */}
+  <link rel="preload" as="image" href="/stars.jpg" type="image/jpeg" />
+  <link rel="preload" as="image" href="/header-text.png" type="image/png" />
 </head>
 
-<section 
-    class="bg-cover bg-center bg-no-repeat relative pt-24 md:pt-32 pb-16 md:pb-32" 
-    style="background-image: url('/stars.jpg');"
+<section
+  class="bg-cover bg-center bg-no-repeat relative pt-24 md:pt-32 pb-16 md:pb-32"
+  style="background-image: url('/stars.jpg');"
 >
-    {/* Overlay */}
-    <div class="absolute inset-0 bg-black/60"></div>
+  {/* Overlay */}
+  <div class="absolute inset-0 bg-black/60"></div>
 
-    {/* Content */}
-    <div class="relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto">
-                {/* Main Content */}
-                <div class="space-y-6 md:space-y-10">
-                    {/* Centered Image */}
-                    <div class="relative group">
-                        <img 
-                            src="/band-bw.jpg" 
-                            alt="Band photo" 
-                            width="1920"
-                            height="1080"
-                            loading="lazy"
-                            decoding="async"
-                            fetchpriority="low"
-                            class="w-full h-full object-contain rounded-2xl shadow-2xl"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-
-                    {/* Centered Text */}
-                    <div class="text-center">
-                        <img 
-                            src="/header-text.png" 
-                            alt="Back To The Start - A Tribute to Coldplay 2000-2005" 
-                            width="800"
-                            height="100%"
-                            fetchpriority="high"
-                            decoding="async"
-                            class="w-auto h-auto max-w-[80%] md:max-w-[60%] mx-auto"
-                        />
-                    </div>
-
-                    {/* Centered Buttons */}
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 sm:mb-0">
-                        <a 
-                            href="#contact" 
-                            class="group relative overflow-hidden rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 backdrop-blur-sm scroll-smooth"
-                            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;"
-                        >
-                            <span class="relative flex items-center justify-between px-8 py-4">
-                                <span class="text-white font-light tracking-wider">Book Now</span>
-                                <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                            </span>
-                        </a>
-                        <a 
-                            href="/press-kit.pdf" 
-                            class="group relative overflow-hidden rounded-full border border-white/20 hover:border-white/40 transition-all duration-500"
-                        >
-                            <span class="relative flex items-center justify-between px-8 py-4">
-                                <span class="text-white/90 group-hover:text-white transition-colors font-light tracking-wider">Press Kit</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
+  {/* Content */}
+  <div class="relative z-10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        {/* Main Content */}
+        <div class="space-y-6 md:space-y-10">
+          {/* Centered Image */}
+          <div class="relative group">
+            <img
+              src="/band-bw.jpg"
+              alt="Back To The Start band performing live - Coldplay tribute band"
+              width="1920"
+              height="1080"
+              loading="eager"
+              decoding="async"
+              class="w-full h-full object-contain rounded-2xl shadow-2xl"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            >
             </div>
+          </div>
+
+          {/* Centered Text */}
+          <div class="text-center">
+            <img
+              src="/header-text.png"
+              alt="Back To The Start - A Tribute to Coldplay 2000-2005"
+              width="800"
+              height="100%"
+              decoding="async"
+              class="w-auto h-auto max-w-[80%] md:max-w-[60%] mx-auto"
+            />
+          </div>
+
+          {/* Centered Buttons */}
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center mb-16 sm:mb-0"
+          >
+            <a
+              href="#contact"
+              class="group relative overflow-hidden rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 backdrop-blur-sm scroll-smooth"
+              onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;"
+            >
+              <span
+                class="relative flex items-center justify-between px-8 py-4"
+              >
+                <span class="text-white font-light tracking-wider"
+                  >Book Now</span
+                >
+                <i
+                  class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"
+                ></i>
+              </span>
+            </a>
+            <a
+              href="/press-kit.pdf"
+              class="group relative overflow-hidden rounded-full border border-white/20 hover:border-white/40 transition-all duration-500"
+            >
+              <span
+                class="relative flex items-center justify-between px-8 py-4"
+              >
+                <span
+                  class="text-white/90 group-hover:text-white transition-colors font-light tracking-wider"
+                  >Press Kit</span
+                >
+              </span>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    html {
-        scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 </style>
