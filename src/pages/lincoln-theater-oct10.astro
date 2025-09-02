@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navigation />
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen bg-black flex items-center justify-center overflow-hidden">
+    <!-- Background with gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black z-0"></div>
+    
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+    </div>
+    
+    <div class="relative z-10 container mx-auto px-4 py-24">
+      <div class="max-w-6xl mx-auto text-center">
+        <!-- Event Title -->
+        <div class="mb-8">
+          <h3 class="text-lg md:text-xl text-purple-400 font-light tracking-widest mb-4 animate-fade-in">LIVE AT</h3>
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-slide-up">
+            THE LINCOLN THEATER
+          </h1>
+          <h2 class="text-3xl md:text-5xl text-gray-300 font-light animate-slide-up delay-200">Raleigh, NC</h2>
+        </div>
+        
+        <!-- Date Badge -->
+        <div class="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-600 p-1 rounded-full mb-12 animate-fade-in delay-300">
+          <div class="bg-black px-8 py-4 rounded-full">
+            <p class="text-3xl md:text-4xl font-bold text-white">OCTOBER 10</p>
+          </div>
+        </div>
+        
+        <!-- Band Names -->
+        <div class="space-y-6 mb-12">
+          <div class="animate-slide-up delay-400">
+            <h3 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+              THE BREAKFAST CLUB
+            </h3>
+            <p class="text-lg text-pink-400">The Ultimate '80s Tribute Experience</p>
+          </div>
+          
+          <div class="text-2xl text-gray-500 my-8">with special guest</div>
+          
+          <div class="animate-slide-up delay-500">
+            <h3 class="text-3xl md:text-4xl font-bold text-white">BACK TO THE START</h3>
+            <p class="text-lg text-purple-400">A Tribute to Coldplay 2000-2005</p>
+          </div>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-600">
+          <a 
+            href="https://lincolntheatre.com/event/the-breakfast-club-80s-party-band-w-back-to-the-start-coldplay-tribute/lincoln-theatre/raleigh-north-carolina/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-[2px]"
+          >
+            <span class="relative flex items-center justify-center px-8 py-4 bg-black rounded-full group-hover:bg-transparent transition-all duration-300">
+              <span class="text-white font-semibold text-lg">GET TICKETS</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="py-24 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">Event Schedule</h2>
+        
+        <div class="space-y-6">
+          <div class="flex items-center space-x-8 p-6 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
+            <div class="text-3xl font-bold text-purple-400">7:00</div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Doors Open</h3>
+              <p class="text-gray-400">Get in early, grab a drink, find your spot</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-8 p-6 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
+            <div class="text-3xl font-bold text-blue-400">8:30</div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Back to the Start</h3>
+              <p class="text-gray-400">Experience Coldplay's golden era</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-8 p-6 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all">
+            <div class="text-3xl font-bold text-pink-400">10:00</div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">The Breakfast Club</h3>
+              <p class="text-gray-400">Journey back to the greatest decade of music</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos Section -->
+  <section class="py-24 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">Watch The Artists</h2>
+        
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- The Breakfast Club Video -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold text-white">The Breakfast Club</h3>
+            <div class="relative aspect-video rounded-lg overflow-hidden bg-gray-900">
+              <iframe
+                src="https://www.youtube.com/embed/_wv7tIU1bGc"
+                title="The Breakfast Club promotional video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                frameborder="0"
+                class="absolute inset-0 w-full h-full"
+              ></iframe>
+            </div>
+            <p class="text-gray-400">The longest running, most recognized '80's tribute band in the US</p>
+          </div>
+          
+          <!-- Back to the Start Video -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold text-white">Back to the Start</h3>
+            <div class="relative aspect-video rounded-lg overflow-hidden bg-gray-900">
+              <iframe
+                src="https://player.vimeo.com/video/1089705962?h=a6ecc43d9a&title=0&byline=0&portrait=0&badge=0&autopause=0&controls=1&player_id=vimeo-player&app_id=58479&dnt=1"
+                title="Back to the Start promotional video"
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture"
+                frameborder="0"
+                class="absolute inset-0 w-full h-full"
+              ></iframe>
+            </div>
+            <p class="text-gray-400">Capturing the raw emotion and atmospheric beauty of early Coldplay</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About The Bands -->
+  <section class="py-24 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">About The Artists</h2>
+        
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- The Breakfast Club -->
+          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+            <h3 class="text-3xl font-bold text-pink-400 mb-6">The Breakfast Club®</h3>
+            <div class="space-y-4 text-gray-300">
+              <p>
+                The Breakfast Club® is the longest running, most recognized '80's tribute band in the United States. 
+                Formed in 1993, the group was the first of its kind. The mission was simple: create an entertainment 
+                group that embodied the enigmatic, creative, and buoyant spirit of music and live performances of the 
+                original MTV generation of the 1980's. That mission remains today.
+              </p>
+              <p>
+                This is NOT some wig wearing, mall fashion version of an '80's cover band, lip syncing to tracks while 
+                pretending to play an unplugged guitar. This is real hair, real 1980s clothes, real vocals, and real 
+                musical talent. The Breakfast Club® is the real deal, performing live '80's pop "better than the original 
+                artists" - Wilmington Star News.
+              </p>
+              <p>
+                The guys of The Breakfast Club® have shared the stage with numerous music legends, including but not 
+                limited to, Whitesnake, The Romantics, Poison, Drivin'n'Cryin', Hootie and The Blowfish, White Lion, 
+                The Smithereens, Edwin McCain, and many others.
+              </p>
+              <p class="font-semibold text-white">
+                The Breakfast Club® has had the privilege of performing for rockstars, movie stars, many of America's 
+                top corporations, NASCAR legends, and millions of the most amazing, fervent fans any band could ever hope for.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Back to the Start -->
+          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+            <h3 class="text-3xl font-bold text-blue-400 mb-6">Back to the Start</h3>
+            <div class="space-y-4 text-gray-300">
+              <p>
+                Back to the Start is a tribute to Coldplay's earliest and most iconic era, capturing the raw emotion 
+                and atmospheric beauty of Parachutes, A Rush of Blood to the Head, and X&Y. With a deep reverence for 
+                the original sound, the band delivers an immersive experience that takes audiences on a journey through 
+                Coldplay's golden years—from the intimate melancholy of "Sparks" to the soaring anthems like "Clocks" and "Fix You."
+              </p>
+              <p>
+                Led by vocalist and multi-instrumentalist Scott Ivey, the band features Eric Johnson on guitar, 
+                Daniel Ellis on bass, and Danny Sullivan on drums. Together, they channel the spirit, tone, and 
+                passion that made Coldplay a global phenomenon—before the stadium synths and pop beats.
+              </p>
+              <p class="font-semibold text-white">
+                Journey with us through Coldplay's legendary first three albums. From the raw intimacy of "Yellow" 
+                and "Trouble", through the epic soundscapes of "The Scientist" and "Clocks", our 90-minute show 
+                captures the essence of Coldplay's most influential period.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Information -->
+  <section class="py-24 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">Venue Information</h2>
+        
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Venue Details -->
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-3xl font-bold text-purple-400 mb-4">The Lincoln Theater</h3>
+              <p class="text-gray-300 text-lg leading-relaxed">
+                The Lincoln Theatre is Raleigh's premier live music venue, known for its intimate atmosphere 
+                and exceptional acoustics. Located in the heart of downtown Raleigh, this historic venue 
+                provides the perfect setting for an unforgettable night of music.
+              </p>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <div>
+                  <h4 class="text-white font-semibold">Address</h4>
+                  <p class="text-gray-400">126 E Cabarrus St, Raleigh, NC 27601</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <h4 class="text-white font-semibold">Show Times</h4>
+                  <p class="text-gray-400">Doors: 7:30 PM</p>
+                  <p class="text-gray-400">Back to the Start: 8:30 PM - 9:30 PM</p>
+                  <p class="text-gray-400">The Breakfast Club: 10:00 PM</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
+                </svg>
+                <div>
+                  <h4 class="text-white font-semibold">Tickets</h4>
+                  <p class="text-gray-400">Available at the box office and online</p>
+                  <a href="https://lincolntheatre.com/event/the-breakfast-club-80s-party-band-w-back-to-the-start-coldplay-tribute/lincoln-theatre/raleigh-north-carolina/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 transition-colors">
+                    www.lincolntheatre.com
+                  </a>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                <div>
+                  <h4 class="text-white font-semibold">Contact</h4>
+                  <p class="text-gray-400">(919) 821-4111</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Map -->
+          <div class="h-96 lg:h-[500px] rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.9571823062147!2d-78.63762!3d35.7795897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5f6e1f35a9e1%3A0x4f7e5e0e5e5e5e5e!2s126%20E%20Cabarrus%20St%2C%20Raleigh%2C%20NC%2027601!5e0!3m2!1sen!2sus!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-24 bg-gradient-to-b from-gray-900 to-black">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Don't Miss This Epic Night</h2>
+        <p class="text-xl text-gray-400 mb-12">
+          Two incredible tribute bands, one unforgettable evening of music spanning decades
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <a 
+            href="https://lincolntheatre.com/event/the-breakfast-club-80s-party-band-w-back-to-the-start-coldplay-tribute/lincoln-theatre/raleigh-north-carolina/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-full bg-gradient-to-r from-purple-600 to-pink-600 p-[2px]"
+          >
+            <span class="relative flex items-center justify-center px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full group-hover:opacity-90 transition-opacity">
+              <span class="text-white font-bold text-xl">BUY TICKETS NOW</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 1s ease-out forwards;
+  }
+  
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+</style>
