@@ -7,6 +7,12 @@ const tourDates = [
     venue: 'The Porch at Iconostar',
     location: 'Wilson, NC',
   },
+  {
+    date: 'Oct 10, 2025',
+    venue: 'Lincoln Theatre',
+    location: 'Raleigh, NC',
+    tickets: 'https://lincolntheatre.com/event/the-breakfast-club-80s-party-band-w-back-to-the-start-coldplay-tribute/lincoln-theatre/raleigh-north-carolina/'
+  },
 ];
 ---
 
@@ -23,12 +29,25 @@ const tourDates = [
             <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.date}</div>
             <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.venue}</div>
             <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.location}</div>
-            <button
-              class="border-2 border-black px-6 py-2 hover:bg-black hover:text-white transition-colors"
-              data-name="tickets-button"
-            >
-              Tickets
-            </button>
+            {show.tickets ? (
+              <a
+                href={show.tickets}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-2 border-black px-6 py-2 hover:bg-black hover:text-white transition-colors inline-block"
+                data-name="tickets-button"
+              >
+                Tickets
+              </a>
+            ) : (
+              <button
+                class="border-2 border-gray-400 px-6 py-2 text-gray-400 cursor-not-allowed"
+                data-name="tickets-button"
+                disabled
+              >
+                Tickets
+              </button>
+            )}
           </div>
         ))
       }

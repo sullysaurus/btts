@@ -1,0 +1,104 @@
+---
+// Concert Banner Component
+---
+
+<section class="bg-gradient-to-r from-purple-900 via-pink-900 to-purple-900 relative overflow-hidden">
+  <!-- Animated background pattern -->
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.2"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
+  </div>
+  
+  <div class="relative z-10 py-4 md:py-6">
+    <div class="container mx-auto px-4">
+      <a 
+        href="/lincoln-theater-oct10"
+        class="block group"
+      >
+        <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-3 lg:gap-6 text-center lg:text-left">
+          <!-- Event Info - All in one line on desktop -->
+          <div class="flex flex-col lg:flex-row items-center gap-2 lg:gap-4">
+            <div class="flex items-center gap-2">
+              <span class="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">LIVE</span>
+              <span class="text-white text-xs md:text-sm font-medium tracking-wider uppercase">Upcoming Show</span>
+            </div>
+            <div class="hidden lg:block text-white/40">•</div>
+            <h2 class="text-xl md:text-2xl font-bold text-white">
+              OCT 10 • THE LINCOLN THEATER
+            </h2>
+            <div class="hidden lg:block text-white/40">•</div>
+            <p class="text-pink-200 text-sm md:text-base">
+              Opening for The Breakfast Club • Raleigh, NC
+            </p>
+          </div>
+          
+          <!-- CTA Button -->
+          <div class="lg:ml-auto">
+            <div class="relative overflow-hidden rounded-full bg-white p-[1px] group-hover:scale-105 transition-transform duration-300">
+              <span class="relative flex items-center justify-center px-5 md:px-6 py-2 md:py-2.5 bg-white rounded-full">
+                <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold text-sm md:text-base whitespace-nowrap">
+                  BUY TICKETS
+                </span>
+                <svg class="w-4 h-4 ml-2 text-purple-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Close button -->
+  <button 
+    id="close-banner"
+    class="absolute top-1/2 -translate-y-1/2 right-2 text-white/60 hover:text-white transition-colors p-1"
+    aria-label="Close banner"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+</section>
+
+<script>
+  // Allow users to close the banner if they want
+  const closeButton = document.getElementById('close-banner');
+  const banner = closeButton?.closest('section');
+  
+  if (closeButton && banner) {
+    // Check if banner was previously closed in this session
+    const bannerClosed = sessionStorage.getItem('concertBannerClosed');
+    if (bannerClosed === 'true') {
+      banner.style.display = 'none';
+    }
+    
+    closeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      banner.style.transition = 'all 0.3s ease-out';
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(-100%)';
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 300);
+      // Remember that the banner was closed for this session
+      sessionStorage.setItem('concertBannerClosed', 'true');
+    });
+  }
+</script>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 3s ease-in-out infinite;
+  }
+</style>
