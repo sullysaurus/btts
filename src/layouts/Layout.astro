@@ -10,8 +10,14 @@ const {
   title = 'Back To The Start - Coldplay Tribute Band',
   description = "Experience the magic of early Coldplay with Back To The Start, a tribute band dedicated to recreating the sound and energy of Coldplay's 2000-2005 era. Book us for your next event.",
   image = '/band-bw.jpg',
-  url = Astro.url,
+  url: providedUrl,
 } = Astro.props;
+
+const siteOrigin = Astro.site ?? Astro.url;
+const canonicalUrl = providedUrl ?? (Astro.site
+  ? new URL(`${Astro.url.pathname}${Astro.url.search}`, Astro.site).toString()
+  : Astro.url.toString());
+const ogImageUrl = new URL(image, siteOrigin).toString();
 
 import '../styles/global.css';
 ---
@@ -28,17 +34,17 @@ import '../styles/global.css';
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, url)} />
+    <meta property="og:image" content={ogImageUrl} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={url} />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, url)} />
+    <meta property="twitter:image" content={ogImageUrl} />
 
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow" />
@@ -47,7 +53,7 @@ import '../styles/global.css';
       content="Coldplay tribute band, Back To The Start, Coldplay cover band, live music, events, booking, Parachutes, Rush of Blood, X&Y"
     />
     <meta name="author" content="Back To The Start" />
-    <link rel="canonical" href={url} />
+    <link rel="canonical" href={canonicalUrl} />
   </head>
   <body>
     <slot />
