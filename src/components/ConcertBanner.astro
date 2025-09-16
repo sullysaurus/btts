@@ -48,45 +48,7 @@
       </a>
     </div>
   </div>
-  
-  <!-- Close button -->
-  <button 
-    id="close-banner"
-    class="absolute top-1/2 -translate-y-1/2 right-2 text-white/60 hover:text-white transition-colors p-1"
-    aria-label="Close banner"
-  >
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-    </svg>
-  </button>
 </section>
-
-<script>
-  // Allow users to close the banner if they want
-  const closeButton = document.getElementById('close-banner');
-  const banner = closeButton?.closest('section');
-  
-  if (closeButton && banner) {
-    // Check if banner was previously closed in this session
-    const bannerClosed = sessionStorage.getItem('concertBannerClosed');
-    if (bannerClosed === 'true') {
-      banner.style.display = 'none';
-    }
-    
-    closeButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      banner.style.transition = 'all 0.3s ease-out';
-      banner.style.opacity = '0';
-      banner.style.transform = 'translateY(-100%)';
-      setTimeout(() => {
-        banner.style.display = 'none';
-      }, 300);
-      // Remember that the banner was closed for this session
-      sessionStorage.setItem('concertBannerClosed', 'true');
-    });
-  }
-</script>
 
 <style>
   @keyframes pulse {
