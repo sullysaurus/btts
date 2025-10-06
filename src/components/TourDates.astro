@@ -1,57 +1,196 @@
----
-const tourDates = [
-  { date: 'July 5, 2025', venue: 'Private Party', location: 'Rocky Mount, NC' },
-  { date: 'August 9, 2025', venue: 'Private Party', location: 'Raleigh, NC' },
-  {
-    date: 'Sept 27, 2025',
-    venue: 'The Porch at Iconostar',
-    location: 'Wilson, NC',
-  },
-  {
-    date: 'Oct 10, 2025',
-    venue: 'Lincoln Theatre',
-    location: 'Raleigh, NC',
-    tickets: 'https://www.etix.com/ticket/p/93934251/the-breakfast-club-80s-party-bandwback-to-the-start-coldplay-tribute-raleigh-lincoln-theatre?partner_id=100&_gl=1*crm7p1*_ga*MTUyOTgyNzE3MS4xNzU4MDUxNzAy*_ga_RWT47XCJBE*czE3NTgwNTE3MDEkbzEkZzEkdDE3NTgwNTE4NzckajYwJGwwJGgw*_ga_QCNG7EMBYE*czE3NTgwNTE3MDEkbzEkZzEkdDE3NTgwNTE4NzckajYwJGwwJGg0NTMwNjM1ODA.'
-  },
-];
----
+<section id="shows" class="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-blue-900" data-name="tour-dates-section">
+  {/* Ethereal decorative background elements */}
+  <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full opacity-10 blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full opacity-10 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-400 rounded-full opacity-5 blur-3xl"></div>
 
-<section id="shows" class="py-16 px-4" data-name="tour-dates-section">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-4xl font-bold mb-12 text-center">TOUR DATES</h2>
-    <div class="space-y-4" data-name="tour-dates-list">
-      {
-        tourDates.map(show => (
-          <div
-            class="tour-date flex flex-col md:flex-row justify-between items-center p-6 border-b border-gray-200"
-            data-name="tour-date-item"
-          >
-            <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.date}</div>
-            <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.venue}</div>
-            <div class="md:w-1/4 text-xl mb-4 md:mb-0">{show.location}</div>
-            {show.tickets ? (
-              <a
-                href={show.tickets}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="border-2 border-black px-6 py-2 hover:bg-black hover:text-white transition-colors inline-block"
-                data-name="tickets-button"
-              >
-                Tickets
-              </a>
-            ) : (
-              <button
-                class="border-2 border-gray-400 px-6 py-2 text-gray-400 cursor-not-allowed"
-                data-name="tickets-button"
-                disabled
-              >
-                Tickets
-              </button>
-            )}
-          </div>
-        ))
-      }
+  {/* Sparkle particles */}
+  <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-30 hidden md:block">
+    <div class="sparkle sparkle-1"></div>
+    <div class="sparkle sparkle-2"></div>
+    <div class="sparkle sparkle-3"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-blue-300 scroll-reveal drop-shadow-[0_0_15px_rgba(147,197,253,0.5)]">Tour Dates</h2>
+    <div class="flex justify-center mb-8">
+      <div class="h-1 w-32 bg-gradient-to-r from-cyan-400 via-purple-500 to-blue-500 rounded-full shadow-lg shadow-purple-500/50"></div>
     </div>
+
+    <script is:inline charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
+    <a
+      class="bit-widget-initializer"
+      data-artist-name="id_4423955"
+      data-background-color="rgba(17,24,39,0.95)"
+      data-separator-color="rgba(139,92,246,0.3)"
+      data-text-color="rgba(226,232,240,0.95)"
+      data-font="Helvetica"
+      data-auto-style="false"
+      data-button-label-capitalization="uppercase"
+      data-header-capitalization="uppercase"
+      data-location-capitalization="uppercase"
+      data-venue-capitalization="uppercase"
+      data-display-local-dates="true"
+      data-local-dates-position="tab"
+      data-display-past-dates="false"
+      data-display-details="false"
+      data-display-lineup="false"
+      data-display-start-time="true"
+      data-social-share-icon="false"
+      data-display-limit="all"
+      data-date-format="MMM. D, YYYY"
+      data-date-orientation="horizontal"
+      data-date-border-color="#8B5CF6"
+      data-date-border-width="2px"
+      data-date-capitalization="uppercase"
+      data-date-border-radius="12px"
+      data-event-ticket-cta-size="medium"
+      data-event-custom-ticket-text=""
+      data-event-ticket-text="TICKETS"
+      data-event-ticket-icon="false"
+      data-event-ticket-cta-text-color="rgba(255,255,255,1)"
+      data-event-ticket-cta-bg-color="rgba(139,92,246,1)"
+      data-event-ticket-cta-border-color="rgba(139,92,246,1)"
+      data-event-ticket-cta-border-width="2px"
+      data-event-ticket-cta-border-radius="12px"
+      data-sold-out-button-text-color="rgba(255,255,255,1)"
+      data-sold-out-button-background-color="rgba(120,120,120,1)"
+      data-sold-out-button-border-color="rgba(120,120,120,1)"
+      data-sold-out-button-clickable="false"
+      data-event-rsvp-position="left"
+      data-event-rsvp-cta-size="medium"
+      data-event-rsvp-only-show-icon="false"
+      data-event-rsvp-text="RSVP"
+      data-event-rsvp-icon="false"
+      data-event-rsvp-cta-text-color="rgba(0,0,0,1)"
+      data-event-rsvp-cta-bg-color="rgba(255,255,255,1)"
+      data-event-rsvp-cta-border-color="rgba(0,0,0,1)"
+      data-event-rsvp-cta-border-width="2px"
+      data-event-rsvp-cta-border-radius="2px"
+      data-follow-section-position="top"
+      data-follow-section-alignment="center"
+      data-follow-section-header-text="Get updates on new shows, new music, and more"
+      data-follow-section-cta-size="medium"
+      data-follow-section-cta-text="FOLLOW"
+      data-follow-section-cta-icon="true"
+      data-follow-section-cta-text-color="rgba(255,255,255,1)"
+      data-follow-section-cta-bg-color="rgba(59,130,246,1)"
+      data-follow-section-cta-border-color="rgba(59,130,246,1)"
+      data-follow-section-cta-border-width="2px"
+      data-follow-section-cta-border-radius="12px"
+      data-play-my-city-position="bottom"
+      data-play-my-city-alignment="center"
+      data-play-my-city-header-text="Don't see a show near you?"
+      data-play-my-city-cta-size="medium"
+      data-play-my-city-cta-text="REQUEST A SHOW"
+      data-play-my-city-cta-icon="true"
+      data-play-my-city-cta-text-color="rgba(255,255,255,1)"
+      data-play-my-city-cta-bg-color="rgba(6,182,212,1)"
+      data-play-my-city-cta-border-color="rgba(6,182,212,1)"
+      data-play-my-city-cta-border-width="2px"
+      data-play-my-city-cta-border-radius="12px"
+      data-language="en"
+      data-layout-breakpoint="900"
+      data-app-id=""
+      data-affil-code=""
+      data-bit-logo-position="bottomRight"
+      data-bit-logo-color="#CCCCCC"
+    ></a>
   </div>
 </section>
 
+<style>
+  /* Ethereal sparkle animation */
+  .sparkle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(147, 197, 253, 0.8);
+    animation: sparkle-float 6s infinite ease-in-out;
+  }
+
+  .sparkle-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+
+  .sparkle-2 {
+    top: 70%;
+    right: 20%;
+    animation-delay: 2s;
+  }
+
+  .sparkle-3 {
+    bottom: 30%;
+    left: 70%;
+    animation-delay: 4s;
+  }
+
+  @keyframes sparkle-float {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-20px) scale(1.5);
+      opacity: 1;
+    }
+  }
+
+  /* Custom styling for the Bands In Town widget - ethereal theme */
+  :global(.bit-widget) {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    background: rgba(17, 24, 39, 0.95) !important;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  :global(.bit-event) {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2) !important;
+    background: rgba(30, 41, 59, 0.3) !important;
+  }
+
+  :global(.bit-event:hover) {
+    background: rgba(139, 92, 246, 0.15) !important;
+    transform: translateX(4px);
+    box-shadow: inset 4px 0 0 rgba(139, 92, 246, 0.8);
+  }
+
+  /* Button hover effects - electric glow */
+  :global(.bit-widget a[class*="cta"]),
+  :global(.bit-widget button[class*="cta"]) {
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4) !important;
+  }
+
+  :global(.bit-widget a[class*="cta"]:hover),
+  :global(.bit-widget button[class*="cta"]:hover) {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.6), 0 0 20px rgba(139, 92, 246, 0.4) !important;
+  }
+
+  /* Ticket button styling - electric purple */
+  :global(.bit-widget a[class*="ticket"]) {
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    background: linear-gradient(135deg, #8B5CF6, #3B82F6) !important;
+  }
+
+  /* Follow button - electric blue */
+  :global(.bit-widget [data-testid*="follow"]) {
+    background: linear-gradient(135deg, #3B82F6, #06B6D4) !important;
+  }
+
+  /* Date badge styling - ethereal glow */
+  :global(.bit-widget [class*="date"]) {
+    font-weight: 700 !important;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  }
+</style>

@@ -1,5 +1,166 @@
 ---
-// Empty navigation component
+// Navigation component
 ---
 
-<!-- Navigation temporarily removed -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-nav">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      {/* Logo */}
+      <a href="/" class="flex items-center">
+        <img src="/logo.png" alt="Back to the Start" class="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+      </a>
+
+      {/* Desktop Navigation */}
+      <div class="hidden md:flex items-center space-x-8 nav-links">
+        <a href="#about" class="nav-link text-white hover:text-cyan-400 transition-colors duration-300">About</a>
+        <a href="#setlist" class="nav-link text-white hover:text-purple-400 transition-colors duration-300">Setlist</a>
+        <a href="#albums" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">Albums</a>
+        <a href="#shows" class="nav-link text-white hover:text-cyan-400 transition-colors duration-300">Shows</a>
+        <a href="#contact" class="nav-link text-white hover:text-purple-400 transition-colors duration-300">Contact</a>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        class="md:hidden text-white hover:text-cyan-400 transition-colors"
+        id="mobile-menu-button"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  {/* Scroll Progress Bar */}
+  <div class="scroll-progress-bar"></div>
+
+  {/* Mobile Menu */}
+  <div class="mobile-menu hidden md:hidden bg-black/95 backdrop-blur-lg" id="mobile-menu">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col space-y-6">
+        <a href="#about" class="mobile-nav-link text-white hover:text-cyan-400 transition-colors duration-300 text-xl">About</a>
+        <a href="#setlist" class="mobile-nav-link text-white hover:text-purple-400 transition-colors duration-300 text-xl">Setlist</a>
+        <a href="#albums" class="mobile-nav-link text-white hover:text-blue-400 transition-colors duration-300 text-xl">Albums</a>
+        <a href="#shows" class="mobile-nav-link text-white hover:text-cyan-400 transition-colors duration-300 text-xl">Shows</a>
+        <a href="#contact" class="mobile-nav-link text-white hover:text-purple-400 transition-colors duration-300 text-xl">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  #main-nav {
+    background: transparent;
+  }
+
+  #main-nav.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+  }
+
+  .nav-link {
+    position: relative;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #22D3EE, #8B5CF6, #3B82F6);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .scroll-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #22D3EE, #8B5CF6, #3B82F6);
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+    width: 0%;
+    transition: width 0.1s ease;
+  }
+
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .mobile-menu.open {
+    max-height: 500px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link::after {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Scroll behavior
+  const nav = document.getElementById('main-nav');
+  const progressBar = document.querySelector('.scroll-progress-bar');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+
+    // Update progress bar
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    if (progressBar) {
+      (progressBar as HTMLElement).style.width = scrolled + '%';
+    }
+  });
+
+  // Mobile menu toggle
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    mobileMenu?.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('open');
+    });
+  });
+
+  // Smooth scroll for all nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href && href !== '#') {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+</script>

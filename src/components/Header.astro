@@ -5,80 +5,63 @@
 </head>
 
 <section
-  class="bg-cover bg-center bg-no-repeat relative pt-24 md:pt-32 pb-16 md:pb-32"
+  class="bg-cover bg-center bg-fixed relative flex items-center justify-center overflow-hidden pt-32 pb-20"
   style="background-image: url('/stars.jpg');"
 >
-  {/* Overlay */}
-  <div class="absolute inset-0 bg-black/60"></div>
+  {/* Deep space overlay */}
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70"></div>
 
-  {/* Content */}
-  <div class="relative z-10">
-    <div class="container mx-auto px-4">
-      <div class="max-w-5xl mx-auto">
-        {/* Main Content */}
-        <div class="space-y-6 md:space-y-10">
-          {/* Centered Image */}
-          <div class="relative group">
-            <img
-              src="/band-bw.jpg"
-              alt="Back To The Start band performing live - Coldplay tribute band"
-              width="1920"
-              height="1080"
-              loading="eager"
-              decoding="async"
-              class="w-full h-full object-contain rounded-2xl shadow-2xl"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            >
+  {/* Subtle animated stars */}
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="star star-1"></div>
+    <div class="star star-2"></div>
+    <div class="star star-3"></div>
+    <div class="star star-4"></div>
+    <div class="star star-5"></div>
+    <div class="star star-6"></div>
+  </div>
+
+  {/* Content - centered vertically */}
+  <div class="relative z-10 w-full px-4">
+    <div class="container mx-auto">
+      <div class="max-w-5xl mx-auto text-center space-y-8">
+
+        {/* Glass card with band image */}
+        <div class="glass-card p-6 md:p-10 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl hover:bg-white/10 transition-all duration-500">
+          <div class="space-y-6">
+            {/* Band Image */}
+            <div class="relative overflow-hidden rounded-2xl">
+              <img
+                src="/band-bw.jpg"
+                alt="Back To The Start band performing live"
+                class="w-full h-auto opacity-90"
+              />
             </div>
-          </div>
 
-          {/* Centered Text */}
-          <div class="text-center">
-            <img
-              src="/header-text.png"
-              alt="Back To The Start - A Tribute to Coldplay 2000-2005"
-              width="800"
-              height="100%"
-              decoding="async"
-              class="w-auto h-auto max-w-[80%] md:max-w-[60%] mx-auto"
-            />
-          </div>
-
-          {/* Centered Buttons */}
-          <div
-            class="flex flex-col sm:flex-row gap-4 justify-center mb-16 sm:mb-0"
-          >
-            <a
-              href="#contact"
-              class="group relative overflow-hidden rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 backdrop-blur-sm scroll-smooth"
-              onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;"
-            >
-              <span
-                class="relative flex items-center justify-between px-8 py-4"
+            {/* Title */}
+            <div>
+              <img
+                src="/header-text.png"
+                alt="Back To The Start - A Tribute to Coldplay 2000-2005"
+                class="w-auto h-auto max-w-full mx-auto max-h-32 header-glow"
+              />
+            </div>
+            {/* Buttons */}
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+              <a
+                href="#contact"
+                class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-medium rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 min-h-[48px] flex items-center justify-center"
+                onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;"
               >
-                <span class="text-white font-light tracking-wider"
-                  >Book Now</span
-                >
-                <i
-                  class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"
-                ></i>
-              </span>
-            </a>
-            <a
-              href="/press-kit.pdf"
-              class="group relative overflow-hidden rounded-full border border-white/20 hover:border-white/40 transition-all duration-500"
-            >
-              <span
-                class="relative flex items-center justify-between px-8 py-4"
+                Book Us
+              </a>
+              <a
+                href="/press-kit.pdf"
+                class="px-8 py-4 bg-transparent hover:bg-white/10 backdrop-blur-sm text-white/90 font-medium rounded-full border-2 border-white/40 hover:border-white/60 transition-all duration-300 min-h-[48px] flex items-center justify-center"
               >
-                <span
-                  class="text-white/90 group-hover:text-white transition-colors font-light tracking-wider"
-                  >Press Kit</span
-                >
-              </span>
-            </a>
+                Press Kit
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +70,66 @@
 </section>
 
 <style>
-  html {
-    scroll-behavior: smooth;
+  /* Glass morphism effect */
+  .glass-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* Header image glow effect - Electric Purple */
+  .header-glow {
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8))
+            drop-shadow(0 0 40px rgba(139, 92, 246, 0.6))
+            drop-shadow(0 0 60px rgba(168, 85, 247, 0.4));
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8))
+              drop-shadow(0 0 40px rgba(139, 92, 246, 0.6))
+              drop-shadow(0 0 60px rgba(168, 85, 247, 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 30px rgba(139, 92, 246, 1))
+              drop-shadow(0 0 50px rgba(139, 92, 246, 0.8))
+              drop-shadow(0 0 80px rgba(168, 85, 247, 0.6));
+    }
+  }
+
+  /* Floating stars */
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8);
+    animation: twinkle 4s infinite ease-in-out;
+  }
+
+  .star-1 { top: 10%; left: 15%; animation-delay: 0s; }
+  .star-2 { top: 30%; right: 20%; animation-delay: 1s; }
+  .star-3 { bottom: 40%; left: 25%; animation-delay: 2s; }
+  .star-4 { top: 60%; right: 30%; animation-delay: 1.5s; }
+  .star-5 { bottom: 20%; left: 60%; animation-delay: 0.5s; }
+  .star-6 { top: 80%; right: 45%; animation-delay: 2.5s; }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .glass-card {
+      backdrop-filter: blur(15px);
+    }
   }
 </style>

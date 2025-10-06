@@ -1,0 +1,138 @@
+---
+// Global scroll animations component
+---
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        // Optionally unobserve after reveal for performance
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with scroll-reveal class
+  document.addEventListener('DOMContentLoaded', () => {
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    revealElements.forEach(el => observer.observe(el));
+  });
+
+  // Add smooth scroll behavior for all anchor links
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && href.length > 1) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const offset = 80; // Account for fixed nav
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  });
+
+  // Parallax effect for certain elements
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+
+        // Parallax for decorative elements
+        const parallaxElements = document.querySelectorAll('[data-parallax]');
+        parallaxElements.forEach(el => {
+          const speed = el.getAttribute('data-parallax') || 0.5;
+          const yPos = -(scrolled * parseFloat(speed));
+          (el as HTMLElement).style.transform = `translateY(${yPos}px)`;
+        });
+
+        ticking = false;
+      });
+
+      ticking = true;
+    }
+  });
+
+  // Add hover sound feedback (optional - subtle)
+  document.addEventListener('DOMContentLoaded', () => {
+    const interactiveElements = document.querySelectorAll('button, a[href], .album-card');
+
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        // Add a subtle scale effect on hover
+        if (!el.classList.contains('no-hover-effect')) {
+          el.style.transition = 'transform 0.2s ease';
+        }
+      });
+    });
+  });
+
+  // Reduced motion support
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (prefersReducedMotion.matches) {
+    // Disable animations for users who prefer reduced motion
+    document.documentElement.style.setProperty('--animation-duration', '0s');
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      el.classList.add('revealed');
+    });
+  }
+
+  // Loading animation completion
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+</script>
+
+<style is:global>
+  /* Ensure smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Loading state */
+  body {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+
+  body.loaded {
+    opacity: 1;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>

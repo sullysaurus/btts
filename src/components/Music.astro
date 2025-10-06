@@ -1,58 +1,69 @@
----
-// Astro component script section
----
-
 <section
   id="setlist"
-  class="bg-black text-white py-24"
-  data-name="music-section"
+  class="relative bg-cover bg-center bg-fixed py-20"
+  style="background-image: url('/stars.jpg');"
 >
-  <div class="container mx-auto px-4">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-4xl font-light text-white text-left md:text-center mb-16">
-        Our Setlist
-      </h2>
+  {/* Overlay */}
+  <div class="absolute inset-0 bg-black/60"></div>
 
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        {/* Description Column */}
-        <div class="space-y-6">
-          <p class="text-lg text-gray-300 mb-6">
-            Journey with us through Coldplay's legendary first three albums -
-            Parachutes, A Rush of Blood to the Head, and X&Y. These albums
-            defined an era and established Coldplay as one of the world's
-            greatest bands.
-          </p>
-          <p class="text-lg text-gray-300">
-            From the raw intimacy of "Yellow" and "Trouble", through the epic
-            soundscapes of "The Scientist" and "Clocks", our 90-minute show
-            captures the essence of Coldplay's most influential period.
-          </p>
-          <div class="mt-8">
-            <a
-              href="https://open.spotify.com/playlist/7CyaG99gCDiKnFT85zytZe"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-block border-2 border-white px-8 py-3 hover:bg-white hover:text-black transition-colors"
-            >
-              Open in Spotify
-            </a>
-          </div>
-        </div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-6xl mx-auto space-y-8">
 
-        {/* Spotify Embed Column */}
-        <div class="h-[600px] bg-black/50 rounded-lg overflow-hidden">
-          <iframe
-            src="https://open.spotify.com/embed/playlist/7CyaG99gCDiKnFT85zytZe?utm_source=generator"
-            width="100%"
-            height="100%"
-            frameborder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            class="w-full h-full"></iframe>
+      {/* Title */}
+      <div class="text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Our Setlist
+        </h2>
+        <p class="text-xl text-white/70">
+          A journey through Coldplay's legendary first three albums
+        </p>
+      </div>
+
+      {/* Description Card */}
+      <div class="glass-card p-8 md:p-12 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 space-y-6">
+        <p class="text-lg md:text-xl text-white/90 leading-relaxed">
+          Journey with us through Coldplay's legendary first three albums - <strong>Parachutes</strong>, <strong>A Rush of Blood to the Head</strong>, and <strong>X&Y</strong>. These albums defined an era and established Coldplay as one of the world's greatest bands.
+        </p>
+
+        <p class="text-lg md:text-xl text-white/90 leading-relaxed">
+          From the raw intimacy of "Yellow" and "Trouble", through the epic soundscapes of "The Scientist" and "Clocks", our 90-minute show captures the essence of Coldplay's most influential period.
+        </p>
+
+        <div class="pt-4">
+          <a
+            href="https://open.spotify.com/playlist/7CyaG99gCDiKnFT85zytZe"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-medium rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105"
+          >
+            <i class="fab fa-spotify mr-3 text-xl"></i>
+            Listen on Spotify
+          </a>
         </div>
       </div>
+
+      {/* Spotify Embed */}
+      <div class="glass-card rounded-3xl overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/7CyaG99gCDiKnFT85zytZe?utm_source=generator&theme=0"
+          width="100%"
+          height="600"
+          style="border: 0;"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          class="w-full"
+        ></iframe>
+      </div>
+
     </div>
   </div>
 </section>
 
+<style>
+  .glass-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+</style>
