@@ -1,170 +1,153 @@
 ---
-// Astro component script section
+// Footer component - Modern streamlined design
 ---
 
-<footer id="contact" class="bg-black text-white py-24 relative overflow-hidden">
-  {/* Subtle ethereal top border */}
-  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+<footer class="relative bg-black text-white overflow-hidden">
+  <!-- Gradient fade from email section -->
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-yellow-400/5 to-transparent"></div>
 
-  {/* Ethereal background - very subtle */}
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.03),rgba(139,92,246,0.02),rgba(0,0,0,0)_70%)]"></div>
+  <!-- Subtle background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black via-black to-transparent"></div>
 
-  {/* Floating subtle particles */}
-  <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10 hidden md:block">
-    <div class="footer-particle footer-particle-1"></div>
-    <div class="footer-particle footer-particle-2"></div>
-  </div>
+  <div class="relative z-10 py-20 md:py-32">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="max-w-7xl mx-auto">
 
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-7xl mx-auto">
-      {/* Main Grid */}
-      <div class="grid md:grid-cols-12 gap-16">
-        {/* Brand Column */}
-        <div
-          class="md:col-span-3 md:col-start-2 space-y-8 order-last md:order-first flex flex-col items-center md:items-start"
-        >
-          <img
-            src="/white-logo.png"
-            alt="Back to the Start"
-            class="w-full max-w-[200px] opacity-90 hover:opacity-100 transition-opacity duration-300"
-          />
-          <div class="flex gap-6" data-name="social-links">
-            <a
-              href="https://www.instagram.com/backtothestart.band"
-              class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/50 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]"
-              aria-label="Instagram"
-            >
-              <i class="fab fa-instagram text-xl"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/share/1ECctW2wWe/?mibextid=wwXIfr"
-              class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/50 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]"
-              aria-label="Facebook"
-            >
-              <i class="fab fa-facebook text-xl"></i>
-            </a>
-            <a
-              href="https://www.tiktok.com/@backtothestart.band"
-              class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-400/50 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]"
-              aria-label="TikTok"
-            >
-              <i class="fab fa-tiktok text-xl"></i>
-            </a>
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 mb-20">
+
+          <!-- Left Column: Brand & Social -->
+          <div class="space-y-10">
+            <div class="space-y-8">
+              <img
+                src="/white-logo.png"
+                alt="Back to the Start"
+                class="w-full max-w-[240px] opacity-90 hover:opacity-100 transition-opacity duration-300"
+              />
+              <p class="text-lg text-white/60 font-light leading-relaxed max-w-md">
+                A tribute to the early years of Coldplay, capturing the raw emotion and atmospheric beauty of their most iconic era.
+              </p>
+            </div>
+
+            <!-- Social Links - Modern design -->
+            <div class="space-y-4">
+              <span class="text-sm text-white/40 font-medium uppercase tracking-widest">Follow Along</span>
+              <div class="flex gap-4">
+                <a
+                  href="https://www.instagram.com/backtothestart.band"
+                  class="group relative w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 hover:from-yellow-400/20 hover:to-yellow-400/10 flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-yellow-400/30"
+                  aria-label="Instagram"
+                >
+                  <i class="fab fa-instagram text-xl text-white/80 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1ECctW2wWe/?mibextid=wwXIfr"
+                  class="group relative w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 hover:from-yellow-400/20 hover:to-yellow-400/10 flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-yellow-400/30"
+                  aria-label="Facebook"
+                >
+                  <i class="fab fa-facebook text-xl text-white/80 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@backtothestart.band"
+                  class="group relative w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 hover:from-yellow-400/20 hover:to-yellow-400/10 flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-yellow-400/30"
+                  aria-label="TikTok"
+                >
+                  <i class="fab fa-tiktok text-xl text-white/80 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        {/* Contact Form Column */}
-        <div class="md:col-span-6 text-center md:text-left">
-          <h3 class="text-4xl md:text-4xl font-light mb-8 text-white/90">Get In Touch</h3>
-          <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            class="space-y-6"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="redirect" value="/thank-you" />
 
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-white/30 hover:border-white/20"
-                  required
-                />
+          <!-- Right Column: Contact Form -->
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="h-px w-8 bg-gradient-to-r from-yellow-400 to-transparent"></div>
+                <span class="text-sm text-yellow-400 font-bold uppercase tracking-widest">Get In Touch</span>
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-white/30 hover:border-white/20"
-                  required
-                />
-              </div>
+              <h3 class="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                Book Us
+              </h3>
             </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Your message"
-                rows="5"
-                class="w-full px-4 py-3 bg-white/10 border border-yellow-400/20 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all placeholder:text-white/30"
-                required></textarea>
-            </div>
-            <button
-              type="submit"
-              class="w-full px-6 py-3 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg text-base transition-all duration-300 border border-white/20 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              class="space-y-5"
             >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="redirect" value="/thank-you" />
 
-      {/* Bottom Bar */}
-      <div class="mt-16 pt-8 border-t border-white/10">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center gap-4"
-        >
-          <div class="flex flex-col md:flex-row items-center gap-4">
-            <p class="text-sm text-white/50">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="relative group">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    class="w-full h-14 px-6 bg-white/5 border border-white/20 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 group-hover:border-white/30"
+                    required
+                  />
+                </div>
+                <div class="relative group">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    class="w-full h-14 px-6 bg-white/5 border border-white/20 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 group-hover:border-white/30"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="relative group">
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your event..."
+                  rows="5"
+                  class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 resize-none group-hover:border-white/30"
+                  required></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="group relative w-full h-14 px-8 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-base tracking-wide transition-all duration-300 rounded-2xl hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-400/50 overflow-hidden"
+              >
+                <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span class="relative z-10">Send Message</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10"></div>
+
+        <!-- Bottom Bar - Simplified -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+          <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <p class="text-sm text-white/40 font-light">
               © 2025 Back To The Start. All rights reserved.
             </p>
             <a
               href="mailto:contact@backtothestart.band"
-              class="text-sm text-white/50 hover:text-white/80 transition-colors"
+              class="text-sm text-white/40 hover:text-yellow-400 transition-colors duration-300 font-light"
             >
               contact@backtothestart.band
             </a>
           </div>
-          <p class="text-sm text-white/50">
+          <p class="text-sm text-white/40 font-light">
             Site by <a
               href="https://dannysullivan.netlify.app/"
-              class="hover:text-white/80 transition-colors"
+              class="text-white/50 hover:text-yellow-400 transition-colors duration-300"
               target="_blank"
-              rel="noopener noreferrer">Danny Sullivan</a
-            >
+              rel="noopener noreferrer">Danny Sullivan</a>
           </p>
         </div>
+
       </div>
     </div>
   </div>
 </footer>
-
-<style>
-  /* Subtle floating particles for ethereal effect */
-  .footer-particle {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    background: rgba(59, 130, 246, 0.6);
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(59, 130, 246, 0.8);
-    animation: footer-float 12s infinite ease-in-out;
-  }
-
-  .footer-particle-1 {
-    top: 30%;
-    left: 20%;
-    animation-delay: 0s;
-  }
-
-  .footer-particle-2 {
-    bottom: 40%;
-    right: 25%;
-    animation-delay: 6s;
-  }
-
-  @keyframes footer-float {
-    0%, 100% {
-      transform: translateY(0) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translateY(-20px) scale(1.5);
-      opacity: 0.6;
-    }
-  }
-</style>

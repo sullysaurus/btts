@@ -3,103 +3,183 @@ interface Props {
   title?: string;
 }
 
-const { title = 'Learn About Future Shows' } = Astro.props;
+const { title = 'Stay Connected' } = Astro.props;
 ---
 
-<section
-  id="contact"
-  class="relative bg-cover bg-center bg-fixed flex items-center py-20"
-  style="background-image: url('/stars.jpg');"
->
-  {/* Overlay */}
-  <div class="absolute inset-0 bg-black/60"></div>
+<section id="contact" class="relative bg-black overflow-hidden">
+  <!-- Dynamic gradient background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-black to-purple-500/10"></div>
 
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-3xl mx-auto">
+  <!-- Animated gradient orbs -->
+  <div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
 
-      {/* Glass Card */}
-      <div class="glass-card p-8 md:p-16 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 text-center space-y-8">
+  <!-- Diagonal stripe accent -->
+  <div class="absolute inset-0 bg-gradient-to-br from-transparent via-yellow-400/5 to-transparent transform -skew-y-6"></div>
 
-        {/* Icon */}
-        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-          <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-          </svg>
+  <div class="relative z-10 py-24 md:py-40">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Centered immersive header -->
+        <div class="text-center space-y-8 mb-16">
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-4">
+              <div class="h-px w-12 bg-gradient-to-r from-transparent to-yellow-400"></div>
+              <span class="text-sm text-yellow-400 font-bold uppercase tracking-widest">Join Us</span>
+              <div class="h-px w-12 bg-gradient-to-l from-transparent to-yellow-400"></div>
+            </div>
+
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-none">
+              {title}
+            </h2>
+
+            <p class="text-xl md:text-2xl text-white/60 font-light max-w-2xl mx-auto leading-relaxed">
+              Be the first to know about new shows, exclusive content, and special announcements
+            </p>
+          </div>
         </div>
 
-        {/* Title */}
-        <div class="space-y-3">
-          <h2 class="text-4xl md:text-5xl font-bold text-white">
-            Stay Updated
-          </h2>
-          <p class="text-xl text-white/70">
-            Join our mailing list for show announcements and updates
-          </p>
-        </div>
-
-        {/* Form */}
-        <div id="error-message" class="hidden bg-red-500/20 border border-red-500/50 rounded-lg p-4 text-white">
-          Your subscription could not be saved. Please try again.
-        </div>
-
-        <div id="success-message" class="hidden bg-green-500/20 border border-green-500/50 rounded-lg p-4 text-white">
-          Thanks for subscribing! We'll keep you updated.
-        </div>
-
-        <form
-          id="sib-form"
-          method="POST"
-          action="https://sibforms.com/serve/MUIFAKMMWqznLkj2D8FEXJU0nbh2z0EG2pQwZX7YRcnKUq4dyBzb032TYOkihE6QnTNbM3IU3l1INjGA8vbBtDvNAVnPQXDzw4THRi2ThjS7bqUuGavdCz-65WKA2yqOzZ4O0hgipajCNQPpOhox9H_u9UBom9qLRZzKa0NWjJgdbrg4WkonDMj_p090owKgQE8aLiIi1nyHjBxZ"
-          data-type="subscription"
-          class="space-y-4"
-        >
-          <div class="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              id="EMAIL"
-              name="EMAIL"
-              placeholder="Enter your email"
-              required
-              class="flex-1 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-full text-white placeholder:text-white/50 border border-white/20 focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
-            />
-            <button
-              type="submit"
-              class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-medium rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 whitespace-nowrap"
+        <!-- Premium form container -->
+        <div class="email-form-container">
+          <div
+            id="sib-form-container"
+            class="sib-form-container"
+          >
+            <div
+              id="error-message"
+              class="sib-form-message-panel hidden mb-6"
+              style="font-size:15px; text-align:center; color:#ff6b6b; background-color:rgba(255,107,107,0.1); border-radius:16px; padding:20px; border: 1px solid rgba(255,107,107,0.3);"
             >
-              Subscribe
-            </button>
+              <div
+                class="sib-form-message-panel__text sib-form-message-panel__text--center"
+              >
+                <span class="sib-form-message-panel__inner-text">
+                  Your subscription could not be saved. Please try again.
+                </span>
+              </div>
+            </div>
+            <div
+              id="success-message"
+              class="sib-form-message-panel hidden mb-6"
+              style="font-size:15px; text-align:center; color:#4ade80; background-color:rgba(74,222,128,0.1); border-radius:16px; padding:20px; border: 1px solid rgba(74,222,128,0.3);"
+            >
+              <div
+                class="sib-form-message-panel__text sib-form-message-panel__text--center"
+              >
+                <span class="sib-form-message-panel__inner-text">
+                  Thanks for subscribing! We'll keep you updated about future shows.
+                </span>
+              </div>
+            </div>
+
+            <form
+              id="sib-form"
+              method="POST"
+              action="https://sibforms.com/serve/MUIFAKMMWqznLkj2D8FEXJU0nbh2z0EG2pQwZX7YRcnKUq4dyBzb032TYOkihE6QnTNbM3IU3l1INjGA8vbBtDvNAVnPQXDzw4THRi2ThjS7bqUuGavdCz-65WKA2yqOzZ4O0hgipajCNQPpOhox9H_u9UBom9qLRZzKa0NWjJgdbrg4WkonDMj_p090owKgQE8aLiIi1nyHjBxZ"
+              data-type="subscription"
+            >
+              <div class="flex flex-col sm:flex-row gap-4 max-w-3xl mx-auto">
+                <div class="entry__field flex-1">
+                  <div class="relative group">
+                    <input
+                      type="email"
+                      id="EMAIL"
+                      name="EMAIL"
+                      autocomplete="off"
+                      placeholder="Enter your email address"
+                      data-required="true"
+                      required
+                      class="w-full h-16 md:h-18 px-7 text-base md:text-lg bg-black/40 border-2 border-white/20 rounded-full text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 backdrop-blur-xl group-hover:border-white/30"
+                    />
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
+                  </div>
+                </div>
+
+                <button
+                  class="h-16 md:h-18 px-10 md:px-12 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-base md:text-lg tracking-wide transition-all duration-300 rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-yellow-400/50 flex items-center justify-center gap-3 whitespace-nowrap sib-form-block__button sib-form-block__button-with-loader group relative overflow-hidden"
+                  form="sib-form"
+                  type="submit"
+                >
+                  <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <svg
+                    class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon h-5 w-5 relative z-10"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"
+                    ></path>
+                  </svg>
+                  <span class="relative z-10">Subscribe</span>
+                </button>
+              </div>
+
+              <input
+                type="text"
+                name="email_address_check"
+                value=""
+                class="hidden"
+                style="display: none !important; position: absolute; left: -9999px;"
+              />
+              <input type="hidden" name="locale" value="en" />
+              <input type="hidden" name="html_type" value="simple" />
+            </form>
           </div>
 
-          <input type="text" name="email_address_check" value="" class="hidden" />
-          <input type="hidden" name="locale" value="en" />
-          <input type="hidden" name="html_type" value="simple" />
-        </form>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .glass-card {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  .email-form-container {
+    position: relative;
+  }
+
+  .email-form-container::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle at center, rgba(250,204,21,0.15), transparent 70%);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Fix white box - ensure all Sendinblue form elements have transparent/black backgrounds */
+  .sib-form-container,
+  #sib-form-container,
+  #sib-form,
+  .sib-form-block {
+    background: transparent !important;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 </style>
 
 <script>
   window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
   window.LOCALE = 'en';
-  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'The information provided is invalid. Please review the field format and try again.';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE =
+    'The information provided is invalid. Please review the field format and try again.';
   window.REQUIRED_ERROR_MESSAGE = 'This field cannot be left blank. ';
-  window.GENERIC_INVALID_MESSAGE = 'The information provided is invalid. Please review the field format and try again.';
+  window.GENERIC_INVALID_MESSAGE =
+    'The information provided is invalid. Please review the field format and try again.';
   window.translation = {
     common: {
       selectedList: '{quantity} list selected',
       selectedLists: '{quantity} lists selected',
     },
   };
+
   var AUTOHIDE = Boolean(0);
 </script>
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
