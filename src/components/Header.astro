@@ -1,6 +1,6 @@
 <head>
   {/* Preload critical assets */}
-  <link rel="preload" as="image" href="/band-header.PNG" type="image/png" />
+  <link rel="preload" as="video" href="/background-video.mp4" type="video/mp4" />
   <link rel="preload" as="image" href="/logo.png" type="image/png" />
   <link rel="preload" as="image" href="/header-text.png" type="image/png" />
 </head>
@@ -8,17 +8,17 @@
 <section
   class="relative w-full h-screen overflow-hidden"
 >
-  {/* Full-width hero image */}
+  {/* Full-width hero video */}
   <div class="absolute inset-0">
-    <img
-      src="/band-header.PNG"
-      alt="Back To The Start live performance"
-      width="1920"
-      height="1080"
-      loading="eager"
-      decoding="async"
+    <video
+      src="/background-dance.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
       class="w-full h-full object-cover object-center"
-    />
+    >
+    </video>
   </div>
 
   {/* Logo in top right */}
