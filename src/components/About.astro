@@ -114,7 +114,7 @@
     {/* Divider */}
     <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-    {/* Photo Gallery Section - Slideshow */}
+    {/* Instagram Feed Section */}
     <div class="relative py-20 md:py-32 overflow-hidden">
       {/* Diagonal background element */}
       <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-purple-500/5 transform -skew-y-3 origin-top-left"></div>
@@ -129,191 +129,23 @@
                 <div class="h-1 w-20 bg-gradient-to-r from-yellow-400 to-yellow-300 rounded-full mx-auto"></div>
               </div>
               <h3 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-none mb-6">
-                Photo<br/>Gallery
+                Follow<br/>Our Journey
               </h3>
               <p class="text-xl md:text-2xl text-white/60 font-light">
-                Moments from our performances
+                Stay connected on Instagram
               </p>
             </div>
           </div>
 
-          {/* Slideshow Container */}
+          {/* Instagram Feed Embed */}
           <div class="relative w-full">
-
-            {/* Slides */}
-            <div id="slideshow-container" class="relative w-full overflow-hidden rounded-3xl shadow-2xl h-[400px] md:h-[500px] lg:h-[600px]">
-              <div class="slide active">
-                <img src="/gallery1.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery2.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery3.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery4.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery5.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery6.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery7.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery8.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery9.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery10.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-              <div class="slide">
-                <img src="/gallery11.png" alt="Back To The Start" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <button id="prev-slide" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm flex items-center justify-center text-white transition-all duration-300 hover:scale-110 border border-white/20" aria-label="Previous slide">
-              <i class="fas fa-chevron-left text-lg"></i>
-            </button>
-            <button id="next-slide" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm flex items-center justify-center text-white transition-all duration-300 hover:scale-110 border border-white/20" aria-label="Next slide">
-              <i class="fas fa-chevron-right text-lg"></i>
-            </button>
-
-            {/* Dots Indicator */}
-            <div id="dots-container" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2"></div>
-
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a" data-elfsight-app-lazy></div>
           </div>
+
         </div>
       </div>
     </div>
-
-    <style>
-      .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.8s ease-in-out;
-      }
-
-      .slide.active {
-        opacity: 1;
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .dot.active {
-        background: #facc15;
-        width: 32px;
-        border-radius: 5px;
-      }
-    </style>
-
-    <script>
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('.slide');
-      const totalSlides = slides.length;
-      let autoplayInterval: number;
-
-      // Create dots
-      const dotsContainer = document.getElementById('dots-container');
-      if (dotsContainer) {
-        for (let i = 0; i < totalSlides; i++) {
-          const dot = document.createElement('div');
-          dot.classList.add('dot');
-          if (i === 0) dot.classList.add('active');
-          dot.addEventListener('click', () => goToSlide(i));
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      function showSlide(n: number) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-
-        currentSlide = (n + totalSlides) % totalSlides;
-        slides[currentSlide].classList.add('active');
-        document.querySelectorAll('.dot')[currentSlide].classList.add('active');
-      }
-
-      function nextSlide() {
-        showSlide(currentSlide + 1);
-      }
-
-      function prevSlide() {
-        showSlide(currentSlide - 1);
-      }
-
-      function goToSlide(n: number) {
-        showSlide(n);
-        resetAutoplay();
-      }
-
-      function startAutoplay() {
-        autoplayInterval = window.setInterval(nextSlide, 5000);
-      }
-
-      function resetAutoplay() {
-        clearInterval(autoplayInterval);
-        startAutoplay();
-      }
-
-      // Event listeners
-      document.getElementById('next-slide')?.addEventListener('click', () => {
-        nextSlide();
-        resetAutoplay();
-      });
-
-      document.getElementById('prev-slide')?.addEventListener('click', () => {
-        prevSlide();
-        resetAutoplay();
-      });
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-          prevSlide();
-          resetAutoplay();
-        } else if (e.key === 'ArrowRight') {
-          nextSlide();
-          resetAutoplay();
-        }
-      });
-
-      // Start autoplay
-      startAutoplay();
-
-      // Pause on hover
-      const container = document.getElementById('slideshow-container');
-      container?.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-      container?.addEventListener('mouseleave', () => startAutoplay());
-    </script>
 
   </div>
 </section>
