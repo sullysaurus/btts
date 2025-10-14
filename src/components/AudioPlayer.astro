@@ -227,11 +227,36 @@
   loadTrack(0);
   audioElement.volume = 0.8;
 
-  // Autoplay on load (with user interaction fallback for browser policies)
-  document.addEventListener('DOMContentLoaded', () => {
-    audioElement?.play().catch(() => {
-      // Autoplay blocked - wait for user interaction
-      console.log('Autoplay blocked, waiting for user interaction');
-    });
-  });
+  // Autoplay attempt (will likely be blocked by browser)
+  let hasAttemptedAutoplay = false;
+
+  const attemptAutoplay = () => {
+    if (!hasAttemptedAutoplay && audioElement) {
+      hasAttemptedAutoplay = true;
+      audioElement.play().catch(() => {
+        // Autoplay blocked - set up listener for first user interaction
+        const playOnInteraction = () => {
+          audioElement?.play();
+          // Remove listeners after first play
+          document.removeEventListener('click', playOnInteraction);
+          document.removeEventListener('scroll', playOnInteraction);
+          document.removeEventListener('touchstart', playOnInteraction);
+          document.removeEventListener('keydown', playOnInteraction);
+        };
+
+        // Try to play on first user interaction
+        document.addEventListener('click', playOnInteraction, { once: true });
+        document.addEventListener('scroll', playOnInteraction, { once: true });
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        document.addEventListener('keydown', playOnInteraction, { once: true });
+      });
+    }
+  };
+
+  // Try autoplay when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attemptAutoplay);
+  } else {
+    attemptAutoplay();
+  }
 </script>
