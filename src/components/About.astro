@@ -138,7 +138,7 @@
           </div>
 
           {/* Instagram Feed Embed */}
-          <div class="relative w-full instagram-feed-container">
+          <div class="relative w-full instagram-feed-container pb-8">
             <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a" data-elfsight-app-lazy></div>
           </div>
@@ -179,5 +179,11 @@
   /* Style widget container */
   .elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a {
     background: transparent !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Ensure button container has proper spacing */
+  .instagram-feed-container > div {
+    overflow: visible !important;
   }
 </style>
