@@ -1,0 +1,256 @@
+---
+// Audio Player Component - Sticky bottom bar
+---
+
+<div id="audio-player" class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-full transition-transform duration-500">
+  <div class="relative bg-gradient-to-r from-black via-gray-900 to-black border-t border-white/10 backdrop-blur-xl">
+    <!-- Animated glow effect -->
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 opacity-50"></div>
+
+    <div class="relative z-10 container mx-auto px-4 md:px-6 py-3">
+      <div class="flex items-center gap-4 md:gap-6">
+
+        <!-- Song Info -->
+        <div class="hidden md:flex items-center gap-4 min-w-[200px] lg:min-w-[250px]">
+          <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-white/10">
+            <i class="fas fa-music text-yellow-400 text-lg"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-white truncate" id="track-title">Track Title</p>
+            <p class="text-xs text-white/60 truncate" id="track-artist">Back To The Start</p>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex-1 flex flex-col items-center gap-2">
+          <div class="flex items-center gap-3">
+            <button id="prev-btn" class="w-8 h-8 flex items-center justify-center text-white/60 hover:text-yellow-400 transition-colors duration-300" aria-label="Previous track">
+              <i class="fas fa-step-backward"></i>
+            </button>
+
+            <button id="play-btn" class="w-10 h-10 rounded-full bg-yellow-400 hover:bg-yellow-300 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-yellow-400/50" aria-label="Play">
+              <i class="fas fa-play ml-0.5"></i>
+            </button>
+
+            <button id="pause-btn" class="hidden w-10 h-10 rounded-full bg-yellow-400 hover:bg-yellow-300 text-black items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-yellow-400/50" aria-label="Pause">
+              <i class="fas fa-pause"></i>
+            </button>
+
+            <button id="next-btn" class="w-8 h-8 flex items-center justify-center text-white/60 hover:text-yellow-400 transition-colors duration-300" aria-label="Next track">
+              <i class="fas fa-step-forward"></i>
+            </button>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full max-w-[400px] md:max-w-[500px] flex items-center gap-3">
+            <span class="text-xs text-white/60 font-mono" id="current-time">0:00</span>
+            <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden group cursor-pointer" id="progress-container">
+              <div class="h-full bg-gradient-to-r from-yellow-400 to-yellow-300 rounded-full transition-all duration-150" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="text-xs text-white/60 font-mono" id="duration">0:00</span>
+          </div>
+        </div>
+
+        <!-- Volume Control -->
+        <div class="hidden lg:flex items-center gap-3 min-w-[120px]">
+          <button id="volume-btn" class="w-8 h-8 flex items-center justify-center text-white/60 hover:text-yellow-400 transition-colors duration-300" aria-label="Mute">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden cursor-pointer" id="volume-container">
+            <div class="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-150" id="volume-bar" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <!-- Close Button -->
+        <button id="close-player" class="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white/80 transition-colors duration-300" aria-label="Close player">
+          <i class="fas fa-times"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Hidden audio element -->
+    <audio id="audio-element" preload="metadata">
+      <source src="" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<!-- Trigger Button (shows when player is hidden) -->
+<button id="show-player-btn" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 text-black flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 z-50 hover:shadow-yellow-400/50">
+  <i class="fas fa-music text-xl"></i>
+</button>
+
+<style>
+  #audio-player.show {
+    transform: translateY(0);
+  }
+
+  #show-player-btn.hidden {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Custom progress bar interaction */
+  #progress-container:hover #progress-bar {
+    background: linear-gradient(to right, #fbbf24, #f59e0b);
+  }
+
+  #volume-container:hover #volume-bar {
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+  }
+</style>
+
+<script>
+  // Audio Player Functionality
+  const audioPlayer = document.getElementById('audio-player');
+  const showPlayerBtn = document.getElementById('show-player-btn');
+  const closePlayerBtn = document.getElementById('close-player');
+  const audioElement = document.getElementById('audio-element') as HTMLAudioElement;
+  const playBtn = document.getElementById('play-btn');
+  const pauseBtn = document.getElementById('pause-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const progressContainer = document.getElementById('progress-container');
+  const progressBar = document.getElementById('progress-bar');
+  const currentTimeEl = document.getElementById('current-time');
+  const durationEl = document.getElementById('duration');
+  const volumeBtn = document.getElementById('volume-btn');
+  const volumeContainer = document.getElementById('volume-container');
+  const volumeBar = document.getElementById('volume-bar');
+  const trackTitle = document.getElementById('track-title');
+  const trackArtist = document.getElementById('track-artist');
+
+  // Sample playlist
+  const playlist = [
+    {
+      title: "Back To The Start",
+      artist: "Coldplay Tribute",
+      src: "/track.mp3"
+    }
+  ];
+
+  let currentTrackIndex = 0;
+
+  // Show/Hide player
+  showPlayerBtn?.addEventListener('click', () => {
+    audioPlayer?.classList.add('show');
+    showPlayerBtn?.classList.add('hidden');
+  });
+
+  closePlayerBtn?.addEventListener('click', () => {
+    audioPlayer?.classList.remove('show');
+    showPlayerBtn?.classList.remove('hidden');
+    audioElement.pause();
+    playBtn?.classList.remove('hidden');
+    pauseBtn?.classList.add('hidden');
+  });
+
+  // Load track
+  function loadTrack(index: number) {
+    const track = playlist[index];
+    if (audioElement && track) {
+      audioElement.src = track.src;
+      if (trackTitle) trackTitle.textContent = track.title;
+      if (trackArtist) trackArtist.textContent = track.artist;
+    }
+  }
+
+  // Play/Pause
+  playBtn?.addEventListener('click', () => {
+    audioElement?.play();
+    playBtn?.classList.add('hidden');
+    pauseBtn?.classList.remove('hidden');
+  });
+
+  pauseBtn?.addEventListener('click', () => {
+    audioElement?.pause();
+    pauseBtn?.classList.add('hidden');
+    playBtn?.classList.remove('hidden');
+  });
+
+  // Previous/Next
+  prevBtn?.addEventListener('click', () => {
+    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(currentTrackIndex);
+    audioElement?.play();
+    playBtn?.classList.add('hidden');
+    pauseBtn?.classList.remove('hidden');
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+    audioElement?.play();
+    playBtn?.classList.add('hidden');
+    pauseBtn?.classList.remove('hidden');
+  });
+
+  // Update progress bar
+  audioElement?.addEventListener('timeupdate', () => {
+    if (audioElement.duration) {
+      const progress = (audioElement.currentTime / audioElement.duration) * 100;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+      if (currentTimeEl) currentTimeEl.textContent = formatTime(audioElement.currentTime);
+    }
+  });
+
+  // Update duration
+  audioElement?.addEventListener('loadedmetadata', () => {
+    if (durationEl && audioElement.duration) {
+      durationEl.textContent = formatTime(audioElement.duration);
+    }
+  });
+
+  // Seek functionality
+  progressContainer?.addEventListener('click', (e) => {
+    const rect = progressContainer.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    if (audioElement.duration) {
+      audioElement.currentTime = percent * audioElement.duration;
+    }
+  });
+
+  // Volume control
+  volumeContainer?.addEventListener('click', (e) => {
+    const rect = volumeContainer.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    audioElement.volume = percent;
+    if (volumeBar) volumeBar.style.width = `${percent * 100}%`;
+  });
+
+  volumeBtn?.addEventListener('click', () => {
+    if (audioElement.volume > 0) {
+      audioElement.volume = 0;
+      if (volumeBar) volumeBar.style.width = '0%';
+      if (volumeBtn.querySelector('i')) {
+        volumeBtn.querySelector('i')!.className = 'fas fa-volume-mute';
+      }
+    } else {
+      audioElement.volume = 0.8;
+      if (volumeBar) volumeBar.style.width = '80%';
+      if (volumeBtn.querySelector('i')) {
+        volumeBtn.querySelector('i')!.className = 'fas fa-volume-up';
+      }
+    }
+  });
+
+  // Auto-play next track when current ends
+  audioElement?.addEventListener('ended', () => {
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+    audioElement?.play();
+  });
+
+  // Format time helper
+  function formatTime(seconds: number): string {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  // Initialize
+  loadTrack(0);
+  audioElement.volume = 0.8;
+</script>
