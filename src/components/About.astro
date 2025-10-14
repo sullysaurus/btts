@@ -138,7 +138,7 @@
           </div>
 
           {/* Instagram Feed Embed */}
-          <div class="relative w-full">
+          <div class="relative w-full instagram-feed-container">
             <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a" data-elfsight-app-lazy></div>
           </div>
@@ -149,3 +149,35 @@
 
   </div>
 </section>
+
+<style is:global>
+  /* Style Instagram feed load more button */
+  .instagram-feed-container button,
+  .instagram-feed-container a[role="button"],
+  .elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a button {
+    background: linear-gradient(135deg, #facc15 0%, #eab308 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    padding: 0.875rem 2rem !important;
+    font-weight: 700 !important;
+    font-size: 0.875rem !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 14px rgba(250, 204, 21, 0.4) !important;
+  }
+
+  .instagram-feed-container button:hover,
+  .instagram-feed-container a[role="button"]:hover,
+  .elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a button:hover {
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%) !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 8px 24px rgba(250, 204, 21, 0.5) !important;
+  }
+
+  /* Style widget container */
+  .elfsight-app-cb2212ca-ca42-42ea-bc64-08d4c2449e5a {
+    background: transparent !important;
+  }
+</style>
