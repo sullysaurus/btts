@@ -1,7 +1,7 @@
 /stars.jpg
   Cache-Control: public, max-age=31536000, immutable
 
-/header-text.png
+/header-text-white.png
   Cache-Control: public, max-age=31536000, immutable
 
 /band-bw.jpg
